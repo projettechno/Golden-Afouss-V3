@@ -151,13 +151,36 @@ function updateCartBadge() {
   badge.style.display = count > 0 ? 'flex' : 'none';
 }
 
+// ── Format helpers ──
+function formatTime(raw) {
+  if (!raw || raw.trim() === '') return '—';
+  try {
+    const [h, m] = raw.split(':').map(Number);
+    const period = h >= 12 ? 'PM' : 'AM';
+    const hour   = h % 12 || 12;
+    return `${hour}:${String(m).padStart(2, '0')} ${period}`;
+  } catch(e) { return raw; }
+}
+
+function formatDate(raw) {
+  if (!raw || raw.trim() === '') return '—';
+  try {
+    const [y, mo, d] = raw.split('-');
+    return `${d}/${mo}/${y}`;
+  } catch(e) { return raw; }
+}
+
+function getField(id) {
+  return document.getElementById(id)?.value?.trim() || '';
+}
+
 // ── Message builders ──
 function buildWAMsg() {
-  const n  = document.getElementById('contact-name')?.value.trim() || '—';
-  const s  = document.getElementById('group-size')?.value.trim()   || '—';
-  const d  = document.getElementById('arrival-date')?.value         || '—';
-  const t  = document.getElementById('arrival-time')?.value         || '—';
-  const nt = document.getElementById('notes')?.value.trim()         || '';
+  const n  = getField('contact-name') || '—';
+  const s  = getField('group-size')   || '—';
+  const d  = formatDate(getField('arrival-date'));
+  const t  = formatTime(getField('arrival-time'));
+  const nt = getField('notes');
   const order = Object.keys(sel).map(id =>
     `• ${sel[id].name}${sel[id].price ? ' (' + sel[id].price + ')' : ''} × ${sel[id].qty}`
   ).join('\n');
@@ -173,11 +196,11 @@ function sendWA(e) {
 function sendEM(e) {
   if (e) e.preventDefault();
   if (!Object.keys(sel).length) { showToast(T[lang]['toast-empty']); return; }
-  const n  = document.getElementById('contact-name')?.value.trim() || '—';
-  const s  = document.getElementById('group-size')?.value.trim()   || '—';
-  const d  = document.getElementById('arrival-date')?.value         || '—';
-  const t  = document.getElementById('arrival-time')?.value         || '—';
-  const nt = document.getElementById('notes')?.value.trim()         || '';
+  const n  = getField('contact-name') || '—';
+  const s  = getField('group-size')   || '—';
+  const d  = formatDate(getField('arrival-date'));
+  const t  = formatTime(getField('arrival-time'));
+  const nt = getField('notes');
   const order = Object.keys(sel).map(id =>
     `- ${sel[id].name}${sel[id].price ? ' (' + sel[id].price + ')' : ''} x${sel[id].qty}`
   ).join('\n');
@@ -209,6 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set today's date on booking page
   const dateInput = document.getElementById('arrival-date');
   if (dateInput) dateInput.valueAsDate = new Date();
+
+  // Set a default arrival time (12:00) so mobile browsers don't return empty
+  const timeInput = document.getElementById('arrival-time');
+  if (timeInput && !timeInput.value) timeInput.value = '12:00';
 
   // Restore card states from saved cart
   restoreCardStates();
