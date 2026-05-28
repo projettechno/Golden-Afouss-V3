@@ -10,9 +10,9 @@ let sel = {};
 // ── Language strings ──
 const T = {
   en: {
-    'nav-menu': 'Menu', 'nav-argan': 'Argan Boutique', 'nav-book': 'Book Now', 'nav-about': 'About',
+    'nav-menu': 'Menu', 'nav-argan': 'Argan', 'nav-book': 'Book Now', 'nav-about': 'About',
     'sum-title': 'Your Selection',
-    'sum-empty': 'No items selected yet.<br>Go to Menu or Argan Boutique.',
+    'sum-empty': 'No items selected yet.<br>Go to the Menu to choose.',
     'wa-lbl': 'Send via WhatsApp', 'em-lbl': 'Send via Email', 'clear-lbl': 'Clear all selections',
     'toast-empty': '⚠ Please select at least one item.',
     'toast-cleared': '✓ Selection cleared.',
@@ -21,9 +21,9 @@ const T = {
     'footer-built': 'Built with love in the Atlas Mountains.'
   },
   fr: {
-    'nav-menu': 'Menu', 'nav-argan': 'Boutique Argan', 'nav-book': 'Réserver', 'nav-about': 'À Propos',
+    'nav-menu': 'Menu', 'nav-argan': 'Argan', 'nav-book': 'Réserver', 'nav-about': 'À Propos',
     'sum-title': 'Votre Sélection',
-    'sum-empty': 'Aucun article sélectionné.<br>Allez au Menu ou à la Boutique.',
+    'sum-empty': 'Aucun article sélectionné.<br>Allez au Menu pour choisir.',
     'wa-lbl': 'Envoyer par WhatsApp', 'em-lbl': 'Envoyer par Email', 'clear-lbl': 'Effacer la sélection',
     'toast-empty': '⚠ Sélectionnez au moins un article.',
     'toast-cleared': '✓ Sélection effacée.',
