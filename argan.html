@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Argan Boutique — Golden Afouss</title>
+  <meta name="description" content="Authentic argan oil, amlou, beauty products and Berber crafts handmade by the women of Afousse Association.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .argan-banner {
+      background: var(--green);
+      border-radius: var(--r2);
+      padding: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .argan-banner::before {
+      content: '';
+      position: absolute; inset: 0; opacity: 0.05;
+      background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 30%);
+      background-size: 16px 16px;
+    }
+    .argan-banner-content { position: relative; }
+    .argan-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px; font-weight: 300; color: white;
+      margin-bottom: 8px; line-height: 1.2;
+    }
+    .argan-banner p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 500px; }
+    .argan-badge {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<div class="toast-wrap"><div class="toast" id="toast"></div></div>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+</div>
+
+<nav class="navbar">
+  <div class="nav-inner" style="position:relative">
+    <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
+      <a class="nav-link active" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan Boutique</span></a>
+      <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
+      <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
+    </div>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="argan-banner">
+    <div class="argan-banner-content">
+      <h2 class="en">Association Afousse<br>Argan & Beauty</h2>
+      <h2 class="fr" style="display:none">Association Afousse<br>Argan & Beauté</h2>
+      <p class="en">Handcrafted with care by the women of Afousse Association. Pure, natural, and traditionally produced in the Atlas Mountains.</p>
+      <p class="fr" style="display:none">Fabriqués avec soin par les femmes de l'Association Afousse. Purs, naturels et produits traditionnellement dans les montagnes de l'Atlas.</p>
+    </div>
+    <span class="argan-badge en">Women-Led Cooperative</span>
+    <span class="argan-badge fr" style="display:none">Coopérative Féminine</span>
+  </div>
+
+  <div class="sec-head">
+    <div class="sec-eyebrow en">Authentic Berber Products</div>
+    <div class="sec-eyebrow fr" style="display:none">Produits Berbères Authentiques</div>
+    <h2 class="en">Our Products</h2>
+    <h2 class="fr" style="display:none">Nos Produits</h2>
+    <p class="en">Select products to include in your group booking. Our team will have everything ready when you arrive.</p>
+    <p class="fr" style="display:none">Sélectionnez des produits à inclure dans votre réservation. Notre équipe aura tout prêt à votre arrivée.</p>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-label"><span class="cat-label-text en">Argan Oils</span><span class="cat-label-text fr" style="display:none">Huiles d'Argan</span><div class="cat-label-line"></div></div>
+    <div class="menu-grid">
+
+      <div class="menu-card" data-id="argan-cul" data-name="Culinary Argan Oil" data-namefr="Huile d'Argan Alimentaire" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🫙</span>
+        <div class="card-name en">Culinary Argan Oil</div><div class="card-name fr" style="display:none">Huile d'Argan Alimentaire</div>
+        <div class="card-desc en">100% pure, cold-pressed. Ideal for dipping & cooking</div><div class="card-desc fr" style="display:none">100% pure, pression à froid. Idéal pour tremper & cuisiner</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+      <div class="menu-card" data-id="argan-cos" data-name="Cosmetic Argan Oil" data-namefr="Huile d'Argan Cosmétique" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">✨</span>
+        <div class="card-name en">Cosmetic Argan Oil</div><div class="card-name fr" style="display:none">Huile d'Argan Cosmétique</div>
+        <div class="card-desc en">Skin, hair & nail care — natural & organic</div><div class="card-desc fr" style="display:none">Soin peau, cheveux & ongles — naturel & bio</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+      <div class="menu-card" data-id="amlou" data-name="Amlou" data-namefr="Amlou" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🥜</span>
+        <div class="card-name en">Amlou</div><div class="card-name fr" style="display:none">Amlou</div>
+        <div class="card-desc en">Argan oil, almonds & honey — traditional Berber spread</div><div class="card-desc fr" style="display:none">Argan, amandes & miel — tartine berbère</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cat-block">
+    <div class="cat-label"><span class="cat-label-text en">Beauty & Wellness</span><span class="cat-label-text fr" style="display:none">Beauté & Bien-être</span><div class="cat-label-line"></div></div>
+    <div class="menu-grid">
+
+      <div class="menu-card" data-id="ghassoul" data-name="Ghassoul Clay" data-namefr="Argile Ghassoul" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🪨</span>
+        <div class="card-name en">Ghassoul Clay</div><div class="card-name fr" style="display:none">Argile Ghassoul</div>
+        <div class="card-desc en">Volcanic clay for hair & skin detox</div><div class="card-desc fr" style="display:none">Argile volcanique détox cheveux & peau</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+      <div class="menu-card" data-id="rosewater" data-name="Rose Water" data-namefr="Eau de Rose" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🌹</span>
+        <div class="card-name en">Rose Water</div><div class="card-name fr" style="display:none">Eau de Rose</div>
+        <div class="card-desc en">Dades Valley roses — pure floral hydrosol</div><div class="card-desc fr" style="display:none">Roses de la vallée du Dadès — hydrolat pur</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+      <div class="menu-card" data-id="beldi" data-name="Savon Beldi" data-namefr="Savon Beldi" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🧴</span>
+        <div class="card-name en">Savon Beldi</div><div class="card-name fr" style="display:none">Savon Beldi</div>
+        <div class="card-desc en">Traditional black soap with argan & eucalyptus</div><div class="card-desc fr" style="display:none">Savon noir argan & eucalyptus</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+      <div class="menu-card" data-id="henna" data-name="Natural Henna" data-namefr="Henné Naturel" data-price="" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🖐️</span>
+        <div class="card-name en">Natural Henna</div><div class="card-name fr" style="display:none">Henné Naturel</div>
+        <div class="card-desc en">Pure plant-based henna powder</div><div class="card-desc fr" style="display:none">Poudre de henné végétale pure</div>
+        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+      </div>
+
+    </div>
+  </div>
+
+  <a class="proceed-btn" href="booking.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+    <span class="en">Add to Booking</span>
+    <span class="fr" style="display:none">Ajouter à la Réservation</span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><em>Golden</em> Afouss</div>
+      <div class="footer-tagline en">A Moroccan mountain café where flavour meets stunning views.</div>
+      <div class="footer-tagline fr" style="display:none">Un café marocain de montagne où saveurs et vues se rencontrent.</div>
+    </div>
+    <div class="footer-col">
+      <h4 class="en">Pages</h4><h4 class="fr" style="display:none">Pages</h4>
+      <a href="index.html" class="en">Home</a><a href="index.html" class="fr" style="display:none">Accueil</a>
+      <a href="menu.html">Menu</a>
+      <a href="argan.html" class="en">Argan Boutique</a><a href="argan.html" class="fr" style="display:none">Boutique Argan</a>
+      <a href="booking.html" class="en">Book Now</a><a href="booking.html" class="fr" style="display:none">Réserver</a>
+      <a href="about.html" class="en">About Us</a><a href="about.html" class="fr" style="display:none">À Propos</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="en">Contact</h4><h4 class="fr" style="display:none">Contact</h4>
+      <p>WhatsApp: +212 639 339 952</p>
+      <p>Email: afoussecafe@gmail.com</p>
+      <p id="footer-hours">Open daily: 8:00 AM – 7:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-rights">© 2025 Golden Afouss. All rights reserved.</span>
+    <span id="footer-built">Built with love in the Atlas Mountains.</span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<a class="floating-cart" href="booking.html">
+  🛒 <span class="en">View Booking</span><span class="fr" style="display:none">Voir Réservation</span>
+  <span id="cart-badge"></span>
+</a>
+</body>
+</html>

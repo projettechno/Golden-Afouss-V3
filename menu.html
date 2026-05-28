@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Golden Afouss</title>
+  <meta name="description" content="Explore the Golden Afouss menu — tajines, pastilla, pasta, salads and desserts. Select items and pre-book your group order online.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="toast-wrap"><div class="toast" id="toast"></div></div>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner" style="position:relative">
+    <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a class="nav-link active" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
+      <a class="nav-link" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan Boutique</span></a>
+      <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
+      <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="sec-head">
+    <div class="sec-eyebrow en">Restaurant Menu</div>
+    <div class="sec-eyebrow fr" style="display:none">Menu du Restaurant</div>
+    <h2 class="en">Our Menu</h2>
+    <h2 class="fr" style="display:none">Notre Menu</h2>
+    <p class="en">Tap any dish to add it to your group booking. Adjust quantities, then proceed to send your order before you arrive.</p>
+    <p class="fr" style="display:none">Touchez un plat pour l'ajouter à votre réservation. Ajustez les quantités puis envoyez votre commande avant d'arriver.</p>
+  </div>
+
+  <!-- ── STARTERS ── -->
+  <div class="cat-block">
+    <div class="cat-label">
+      <span class="cat-label-text en">Starters</span>
+      <span class="cat-label-text fr" style="display:none">Entrées</span>
+      <div class="cat-label-line"></div>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card" data-id="avocado-salad" data-name="Avocado Salad" data-namefr="Salade Avocat" data-price="50 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🥑</span>
+        <div class="card-name en">Avocado Salad</div>
+        <div class="card-name fr" style="display:none">Salade Avocat</div>
+        <div class="card-desc en">Avocado, tomato, cucumber, pear, cheese, nuts</div>
+        <div class="card-desc fr" style="display:none">Avocat, tomate, concombre, poire, fromage, noix</div>
+        <div class="card-price">50 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="moroccan-rolls" data-name="Trio of Moroccan Rolls" data-namefr="Trio de Rolls Marocains" data-price="60 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🧆</span>
+        <div class="card-name en">Trio of Moroccan Rolls</div>
+        <div class="card-name fr" style="display:none">Trio de Rolls Marocains</div>
+        <div class="card-desc en">Cheese, chicken, vegetarian</div>
+        <div class="card-desc fr" style="display:none">Fromage, poulet, végétarien</div>
+        <div class="card-price">60 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="veg-soup" data-name="Vegetable Soup" data-namefr="Soupe de Légumes" data-price="40 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍵</span>
+        <div class="card-name en">Vegetable Soup</div>
+        <div class="card-name fr" style="display:none">Soupe de Légumes</div>
+        <div class="card-desc en">Based on available seasonal vegetables</div>
+        <div class="card-desc fr" style="display:none">À base de légumes de saison disponibles</div>
+        <div class="card-price">40 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="salad-cesar" data-name="Salade César" data-namefr="Salade César" data-price="60 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🥗</span>
+        <div class="card-name en">Salade César</div>
+        <div class="card-name fr" style="display:none">Salade César</div>
+        <div class="card-desc en">Classic caesar with crispy croutons</div>
+        <div class="card-desc fr" style="display:none">César classique aux croûtons croustillants</div>
+        <div class="card-price">60 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="salad-caprice" data-name="Salade Caprice" data-namefr="Salade Caprice" data-price="60 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🥙</span>
+        <div class="card-name en">Salade Caprice</div>
+        <div class="card-name fr" style="display:none">Salade Caprice</div>
+        <div class="card-desc en">Fresh seasonal house salad</div>
+        <div class="card-desc fr" style="display:none">Salade maison fraîche de saison</div>
+        <div class="card-price">60 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="toast-avocado" data-name="Toast with Avocado" data-namefr="Toast à l'Avocat" data-price="70 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍞</span>
+        <div class="card-name en">Toast with Avocado</div>
+        <div class="card-name fr" style="display:none">Toast à l'Avocat</div>
+        <div class="card-desc en">Toasted bread topped with fresh avocado</div>
+        <div class="card-desc fr" style="display:none">Pain grillé garni d'avocat frais</div>
+        <div class="card-price">70 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── MAIN COURSES ── -->
+  <div class="cat-block">
+    <div class="cat-label">
+      <span class="cat-label-text en">Main Courses</span>
+      <span class="cat-label-text fr" style="display:none">Plats Principaux</span>
+      <div class="cat-label-line"></div>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card" data-id="golden-tajine" data-name="Golden Afouss Tajine" data-namefr="Tajine Golden Afouss" data-price="100 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍲</span>
+        <div class="card-name en">Golden Afouss Tajine</div>
+        <div class="card-name fr" style="display:none">Tajine Golden Afouss</div>
+        <div class="card-desc en">Beef, caramelized onions, prunes, figs, apricot</div>
+        <div class="card-desc fr" style="display:none">Bœuf, oignons caramélisés, pruneaux, figues, abricot</div>
+        <div class="card-price">100 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="chicken-pastilla" data-name="Chicken Pastilla" data-namefr="Pastilla au Poulet" data-price="100 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🥧</span>
+        <div class="card-name en">Chicken Pastilla</div>
+        <div class="card-name fr" style="display:none">Pastilla au Poulet</div>
+        <div class="card-desc en">Pie stuffed with chicken, onions, almonds</div>
+        <div class="card-desc fr" style="display:none">Feuilleté farci poulet, oignons, amandes</div>
+        <div class="card-price">100 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="pasta-bolognese" data-name="Pasta Bolognese" data-namefr="Pasta Bolognaise" data-price="85 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍝</span>
+        <div class="card-name en">Pasta Bolognese</div>
+        <div class="card-name fr" style="display:none">Pasta Bolognaise</div>
+        <div class="card-desc en">Spaghetti, tomato sauce, ground beef</div>
+        <div class="card-desc fr" style="display:none">Spaghetti, sauce tomate, bœuf haché</div>
+        <div class="card-price">85 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="pasta-napolitano" data-name="Pasta Napolitano" data-namefr="Pasta Napolitaine" data-price="75 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍜</span>
+        <div class="card-name en">Pasta Napolitano</div>
+        <div class="card-name fr" style="display:none">Pasta Napolitaine</div>
+        <div class="card-desc en">Spaghetti, tomato sauce</div>
+        <div class="card-desc fr" style="display:none">Spaghetti, sauce tomate</div>
+        <div class="card-price">75 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="berber-omelet" data-name="Berber Omelet" data-namefr="Omelette Berbère" data-price="60 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍳</span>
+        <div class="card-name en">Berber Omelet</div>
+        <div class="card-name fr" style="display:none">Omelette Berbère</div>
+        <div class="card-desc en">Onions, tomato, egg, cheese, spices</div>
+        <div class="card-desc fr" style="display:none">Oignons, tomate, œuf, fromage, épices</div>
+        <div class="card-price">60 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="kefta-tajine" data-name="Kefta Tajine" data-namefr="Tajine Kefta" data-price="80 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🫕</span>
+        <div class="card-name en">Kefta Tajine</div>
+        <div class="card-name fr" style="display:none">Tajine Kefta</div>
+        <div class="card-desc en">Onion, tomato, ground beef, cheese</div>
+        <div class="card-desc fr" style="display:none">Oignon, tomate, bœuf haché, fromage</div>
+        <div class="card-price">80 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="chicken-skewers" data-name="Chicken Skewers" data-namefr="Brochettes de Poulet" data-price="90 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍢</span>
+        <div class="card-name en">Chicken Skewers</div>
+        <div class="card-name fr" style="display:none">Brochettes de Poulet</div>
+        <div class="card-desc en">Chicken kebabs served with vegetables or fries</div>
+        <div class="card-desc fr" style="display:none">Brochettes de poulet, légumes ou frites</div>
+        <div class="card-price">90 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="gluten-free-pasta" data-name="Gluten Free Pasta" data-namefr="Pasta Sans Gluten" data-price="100 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🌾</span>
+        <div class="card-name en">Gluten Free Pasta</div>
+        <div class="card-name fr" style="display:none">Pasta Sans Gluten</div>
+        <div class="card-desc en">Spaghetti with tomato or meat sauce</div>
+        <div class="card-desc fr" style="display:none">Spaghetti, sauce tomate ou bolognaise</div>
+        <div class="card-price">100 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── DESSERTS ── -->
+  <div class="cat-block">
+    <div class="cat-label">
+      <span class="cat-label-text en">Desserts</span>
+      <span class="cat-label-text fr" style="display:none">Desserts</span>
+      <div class="cat-label-line"></div>
+    </div>
+    <div class="menu-grid">
+
+      <div class="menu-card" data-id="ice-cream" data-name="Ice Cream" data-namefr="Glace" data-price="30 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍨</span>
+        <div class="card-name en">Ice Cream</div>
+        <div class="card-name fr" style="display:none">Glace</div>
+        <div class="card-desc en">Assorted flavours</div>
+        <div class="card-desc fr" style="display:none">Parfums assortis</div>
+        <div class="card-price">30 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+      <div class="menu-card" data-id="seasonal-fruit" data-name="Seasonal Fruit" data-namefr="Fruits de Saison" data-price="30 MAD" onclick="toggleItem(this)">
+        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
+        <span class="card-emoji">🍓</span>
+        <div class="card-name en">Seasonal Fruit</div>
+        <div class="card-name fr" style="display:none">Fruits de Saison</div>
+        <div class="card-desc en">Fresh selection of seasonal fruits</div>
+        <div class="card-desc fr" style="display:none">Sélection fraîche de fruits de saison</div>
+        <div class="card-price">30 MAD</div>
+        <div class="qty-row" style="display:none">
+          <button class="qty-btn" onclick="chQty(event,this,-1)">−</button>
+          <span class="qty-val">1</span>
+          <button class="qty-btn" onclick="chQty(event,this,1)">+</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Service tip note -->
+  <div style="background:var(--gold-pale);border:1px solid var(--border2);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--muted);text-align:center;">
+    <em class="en">A 10% service tip will be added to your bill.</em>
+    <em class="fr" style="display:none">Un pourboire de service de 10% sera ajouté à votre addition.</em>
+  </div>
+
+  <a class="proceed-btn" href="booking.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+    <span class="en">Proceed to Booking</span>
+    <span class="fr" style="display:none">Passer à la Réservation</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><em>Golden</em> Afouss</div>
+      <div class="footer-tagline en">A Moroccan mountain restaurant where flavour meets stunning views.</div>
+      <div class="footer-tagline fr" style="display:none">Un restaurant marocain de montagne où saveurs et vues se rencontrent.</div>
+    </div>
+    <div class="footer-col">
+      <h4 class="en">Pages</h4><h4 class="fr" style="display:none">Pages</h4>
+      <a href="index.html" class="en">Home</a><a href="index.html" class="fr" style="display:none">Accueil</a>
+      <a href="menu.html" class="en">Menu</a><a href="menu.html" class="fr" style="display:none">Menu</a>
+      <a href="argan.html" class="en">Argan Boutique</a><a href="argan.html" class="fr" style="display:none">Boutique Argan</a>
+      <a href="booking.html" class="en">Book Now</a><a href="booking.html" class="fr" style="display:none">Réserver</a>
+      <a href="about.html" class="en">About Us</a><a href="about.html" class="fr" style="display:none">À Propos</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="en">Contact</h4><h4 class="fr" style="display:none">Contact</h4>
+      <p>WhatsApp: +212 639 339 952</p>
+      <p>Email: afoussecafe@gmail.com</p>
+      <p id="footer-hours">Open daily: 8:00 AM – 7:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-rights">© 2025 Golden Afouss. All rights reserved.</span>
+    <span id="footer-built">Built with love in the Atlas Mountains.</span>
+  </div>
+</footer>
+
+<!-- Floating cart button (mobile) -->
+<a class="floating-cart" href="booking.html">
+  🛒 <span class="en">View Booking</span><span class="fr" style="display:none">Voir Réservation</span>
+  <span id="cart-badge"></span>
+</a>
+
+<script src="js/app.js"></script>
+</body>
+</html>
