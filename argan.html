@@ -3,47 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Argan Boutique — Golden Afouss</title>
-  <meta name="description" content="Authentic argan oil, amlou, beauty products and Berber crafts handmade by the women of Afousse Association.">
+  <title>Argan — Golden Afouss</title>
+  <meta name="description" content="Discover the Golden Afouss Argan story — authentic argan products handcrafted by the women of the Atlas Mountains.">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .argan-banner {
+
+    /* ── HERO BANNER ── */
+    .argan-hero {
       background: var(--green);
       border-radius: var(--r2);
-      padding: 40px;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      padding: 56px 48px;
+      margin-bottom: 48px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
     }
-    .argan-banner::before {
+    .argan-hero::before {
       content: '';
-      position: absolute; inset: 0; opacity: 0.05;
+      position: absolute; inset: 0;
+      opacity: 0.06;
       background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 30%);
-      background-size: 16px 16px;
+      background-size: 18px 18px;
     }
-    .argan-banner-content { position: relative; }
-    .argan-banner h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px; font-weight: 300; color: white;
-      margin-bottom: 8px; line-height: 1.2;
-    }
-    .argan-banner p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 500px; }
-    .argan-badge {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 100px;
-      padding: 8px 20px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 0.08em;
+    .argan-hero-text { position: relative; flex: 1; min-width: 260px; }
+    .argan-hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      white-space: nowrap;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .argan-hero-eyebrow::before,
+    .argan-hero-eyebrow::after {
+      content: '';
+      width: 24px; height: 1px;
+      background: rgba(255,255,255,0.25);
+    }
+    .argan-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .argan-hero h1 em { color: var(--gold2); font-style: italic; }
+    .argan-hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 500px;
+    }
+    .argan-hero-badge {
       position: relative;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--r2);
+      padding: 24px 28px;
+      text-align: center;
+      min-width: 160px;
+    }
+    .argan-hero-badge-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+    .argan-hero-badge-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+    .argan-hero-badge-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold2);
+      margin-top: 4px;
+    }
+
+    /* ── STORY SECTION ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 56px;
+      align-items: center;
+    }
+    .story-text .sec-eyebrow { margin-bottom: 10px; }
+    .story-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .story-text h2 em { color: var(--gold); font-style: italic; }
+    .story-text p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    /* Main featured photo */
+    .story-photo {
+      border-radius: var(--r2);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/5;
+      background: var(--cream2);
+      border: 1px solid var(--border);
+    }
+    .story-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      padding: 24px;
+      text-align: center;
+    }
+    .photo-placeholder-icon { font-size: 40px; opacity: 0.4; }
+    .photo-placeholder-text {
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: 0.6;
+    }
+    .photo-placeholder-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+    /* How to replace note */
+    .photo-hint {
+      position: absolute;
+      bottom: 12px; left: 12px; right: 12px;
+      background: rgba(26,22,18,0.7);
+      color: rgba(253,250,243,0.7);
+      font-size: 11px;
+      padding: 8px 12px;
+      border-radius: var(--r);
+      text-align: center;
+      line-height: 1.5;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── PHOTO GALLERY ── */
+    .gallery-head {
+      margin-bottom: 28px;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .photo-card {
+      border-radius: var(--r2);
+      overflow: hidden;
+      background: var(--cream2);
+      border: 1px solid var(--border);
+      transition: all .22s;
+      position: relative;
+    }
+    .photo-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,22,18,0.08); }
+    .photo-card-img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-card-body { padding: 16px; }
+    .photo-card-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .photo-card-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+    /* Numbered placeholder badge */
+    .photo-num {
+      position: absolute;
+      top: 12px; left: 12px;
+      width: 28px; height: 28px;
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values-strip {
+      background: var(--ink);
+      border-radius: var(--r2);
+      padding: 40px;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .value-item { text-align: center; }
+    .value-icon { font-size: 28px; display: block; margin-bottom: 10px; }
+    .value-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .value-desc { font-size: 12px; color: rgba(253,250,243,0.4); line-height: 1.6; }
+
+    /* ── TEAM SECTION ── */
+    .team-section {
+      background: var(--gold-pale);
+      border: 1px solid var(--border2);
+      border-radius: var(--r2);
+      padding: 40px;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .team-photo {
+      border-radius: var(--r2);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--cream2);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .team-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .team-text h3 em { color: var(--gold); font-style: italic; }
+    .team-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 12px; }
+
+    /* ── CTA ── */
+    .argan-cta {
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+    .argan-cta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .argan-cta p { font-size: 14px; color: var(--muted); margin-bottom: 28px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .argan-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .argan-hero { padding: 32px 20px; gap: 24px; }
+      .argan-hero-badge { display: none; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-photo { aspect-ratio: 3/2; }
+      .photo-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .values-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; gap: 20px; }
+      .team-section { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; }
+      .team-photo { aspect-ratio: 3/2; }
+      .argan-cta-btns { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-gold { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 380px) {
+      .photo-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -51,11 +300,13 @@
 
 <div class="toast-wrap"><div class="toast" id="toast"></div></div>
 
+<!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
   <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
 </div>
 
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner" style="position:relative">
     <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
@@ -64,123 +315,277 @@
     </button>
     <div class="nav-links" id="nav-links">
       <a class="nav-link" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
-      <a class="nav-link active" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan Boutique</span></a>
+      <a class="nav-link active" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan</span></a>
       <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
       <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
     </div>
   </div>
 </nav>
 
+<!-- MAIN -->
 <div class="main">
-  <div class="argan-banner">
-    <div class="argan-banner-content">
-      <h2 class="en">Association Afousse<br>Argan & Beauty</h2>
-      <h2 class="fr" style="display:none">Association Afousse<br>Argan & Beauté</h2>
-      <p class="en">Handcrafted with care by the women of Afousse Association. Pure, natural, and traditionally produced in the Atlas Mountains.</p>
-      <p class="fr" style="display:none">Fabriqués avec soin par les femmes de l'Association Afousse. Purs, naturels et produits traditionnellement dans les montagnes de l'Atlas.</p>
+
+  <!-- HERO BANNER -->
+  <div class="argan-hero">
+    <div class="argan-hero-text">
+      <div class="argan-hero-eyebrow">
+        <span class="en">Atlas Mountains · Pure & Natural</span>
+        <span class="fr" style="display:none">Montagnes de l'Atlas · Pur & Naturel</span>
+      </div>
+      <h1 class="en"><em>Golden Afouss</em><br>Argan</h1>
+      <h1 class="fr" style="display:none"><em>Golden Afouss</em><br>Argan</h1>
+      <p class="en">Handcrafted with care by the women of the Atlas Mountains. Pure, natural, and rooted in centuries of Berber tradition.</p>
+      <p class="fr" style="display:none">Fabriqué avec soin par les femmes des montagnes de l'Atlas. Pur, naturel et ancré dans des siècles de tradition berbère.</p>
     </div>
-    <span class="argan-badge en">Women-Led Cooperative</span>
-    <span class="argan-badge fr" style="display:none">Coopérative Féminine</span>
-  </div>
-
-  <div class="sec-head">
-    <div class="sec-eyebrow en">Authentic Berber Products</div>
-    <div class="sec-eyebrow fr" style="display:none">Produits Berbères Authentiques</div>
-    <h2 class="en">Our Products</h2>
-    <h2 class="fr" style="display:none">Nos Produits</h2>
-    <p class="en">Select products to include in your group booking. Our team will have everything ready when you arrive.</p>
-    <p class="fr" style="display:none">Sélectionnez des produits à inclure dans votre réservation. Notre équipe aura tout prêt à votre arrivée.</p>
-  </div>
-
-  <div class="cat-block">
-    <div class="cat-label"><span class="cat-label-text en">Argan Oils</span><span class="cat-label-text fr" style="display:none">Huiles d'Argan</span><div class="cat-label-line"></div></div>
-    <div class="menu-grid">
-
-      <div class="menu-card" data-id="argan-cul" data-name="Culinary Argan Oil" data-namefr="Huile d'Argan Alimentaire" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🫙</span>
-        <div class="card-name en">Culinary Argan Oil</div><div class="card-name fr" style="display:none">Huile d'Argan Alimentaire</div>
-        <div class="card-desc en">100% pure, cold-pressed. Ideal for dipping & cooking</div><div class="card-desc fr" style="display:none">100% pure, pression à froid. Idéal pour tremper & cuisiner</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
-      <div class="menu-card" data-id="argan-cos" data-name="Cosmetic Argan Oil" data-namefr="Huile d'Argan Cosmétique" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">✨</span>
-        <div class="card-name en">Cosmetic Argan Oil</div><div class="card-name fr" style="display:none">Huile d'Argan Cosmétique</div>
-        <div class="card-desc en">Skin, hair & nail care — natural & organic</div><div class="card-desc fr" style="display:none">Soin peau, cheveux & ongles — naturel & bio</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
-      <div class="menu-card" data-id="amlou" data-name="Amlou" data-namefr="Amlou" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🥜</span>
-        <div class="card-name en">Amlou</div><div class="card-name fr" style="display:none">Amlou</div>
-        <div class="card-desc en">Argan oil, almonds & honey — traditional Berber spread</div><div class="card-desc fr" style="display:none">Argan, amandes & miel — tartine berbère</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
+    <div class="argan-hero-badge">
+      <span class="argan-hero-badge-icon">🌿</span>
+      <div class="argan-hero-badge-label en">Women-Led<br>Cooperative</div>
+      <div class="argan-hero-badge-label fr" style="display:none">Coopérative<br>Féminine</div>
+      <div class="argan-hero-badge-val">Afousse</div>
     </div>
   </div>
 
-  <div class="cat-block">
-    <div class="cat-label"><span class="cat-label-text en">Beauty & Wellness</span><span class="cat-label-text fr" style="display:none">Beauté & Bien-être</span><div class="cat-label-line"></div></div>
-    <div class="menu-grid">
-
-      <div class="menu-card" data-id="ghassoul" data-name="Ghassoul Clay" data-namefr="Argile Ghassoul" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🪨</span>
-        <div class="card-name en">Ghassoul Clay</div><div class="card-name fr" style="display:none">Argile Ghassoul</div>
-        <div class="card-desc en">Volcanic clay for hair & skin detox</div><div class="card-desc fr" style="display:none">Argile volcanique détox cheveux & peau</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
+  <!-- STORY SECTION -->
+  <div class="story-grid">
+    <div class="story-text">
+      <div class="sec-eyebrow en">Our Story</div>
+      <div class="sec-eyebrow fr" style="display:none">Notre Histoire</div>
+      <h2 class="en">Born from the <em>Atlas</em>,<br>made by its women</h2>
+      <h2 class="fr" style="display:none">Né de l'<em>Atlas</em>,<br>fait par ses femmes</h2>
+      <p class="en">The Afousse Association was founded by a group of women from the Atlas Mountains region who wanted to preserve their ancestral knowledge and create a sustainable livelihood for their community.</p>
+      <p class="fr" style="display:none">L'Association Afousse a été fondée par un groupe de femmes de la région de l'Atlas qui souhaitaient préserver leur savoir ancestral et créer une source de revenus durable pour leur communauté.</p>
+      <p class="en">Every product is made by hand using traditional Berber methods passed down through generations — from cracking argan kernels to cold-pressing the oil. No shortcuts, no additives. Just pure Atlas craft.</p>
+      <p class="fr" style="display:none">Chaque produit est fabriqué à la main selon les méthodes berbères traditionnelles transmises de génération en génération — du craquage des noyaux d'argan à la pression à froid de l'huile. Pas de raccourcis, pas d'additifs. Juste l'artisanat pur de l'Atlas.</p>
+    </div>
+    <div class="story-photo">
+      <!-- Replace src with your photo: <img src="images/argan-story.jpg" alt="Argan story"> -->
+      <div class="photo-placeholder">
+        <span class="photo-placeholder-icon">📷</span>
+        <span class="photo-placeholder-text en">Your featured photo here<br>Recommended: portrait format</span>
+        <span class="photo-placeholder-text fr" style="display:none">Votre photo principale ici<br>Recommandé : format portrait</span>
+        <span class="photo-placeholder-label en">Replace with: images/argan-story.jpg</span>
+        <span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/argan-story.jpg</span>
       </div>
-
-      <div class="menu-card" data-id="rosewater" data-name="Rose Water" data-namefr="Eau de Rose" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🌹</span>
-        <div class="card-name en">Rose Water</div><div class="card-name fr" style="display:none">Eau de Rose</div>
-        <div class="card-desc en">Dades Valley roses — pure floral hydrosol</div><div class="card-desc fr" style="display:none">Roses de la vallée du Dadès — hydrolat pur</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
-      <div class="menu-card" data-id="beldi" data-name="Savon Beldi" data-namefr="Savon Beldi" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🧴</span>
-        <div class="card-name en">Savon Beldi</div><div class="card-name fr" style="display:none">Savon Beldi</div>
-        <div class="card-desc en">Traditional black soap with argan & eucalyptus</div><div class="card-desc fr" style="display:none">Savon noir argan & eucalyptus</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
-      <div class="menu-card" data-id="henna" data-name="Natural Henna" data-namefr="Henné Naturel" data-price="" onclick="toggleItem(this)">
-        <div class="check-mark"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,8.5 11,1"/></svg></div>
-        <span class="card-emoji">🖐️</span>
-        <div class="card-name en">Natural Henna</div><div class="card-name fr" style="display:none">Henné Naturel</div>
-        <div class="card-desc en">Pure plant-based henna powder</div><div class="card-desc fr" style="display:none">Poudre de henné végétale pure</div>
-        <div class="qty-row" style="display:none"><button class="qty-btn" onclick="chQty(event,this,-1)">−</button><span class="qty-val">1</span><button class="qty-btn" onclick="chQty(event,this,1)">+</button></div>
-      </div>
-
+      <div class="photo-hint en">📁 To add your photo: create an "images" folder, add your photo, then replace the placeholder div with: &lt;img src="images/argan-story.jpg"&gt;</div>
+      <div class="photo-hint fr" style="display:none">📁 Pour ajouter votre photo : créez un dossier "images", ajoutez votre photo, puis remplacez le div par : &lt;img src="images/argan-story.jpg"&gt;</div>
     </div>
   </div>
 
-  <a class="proceed-btn" href="booking.html">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
-    <span class="en">Add to Booking</span>
-    <span class="fr" style="display:none">Ajouter à la Réservation</span>
-  </a>
+  <!-- GALLERY -->
+  <div class="gallery-head sec-head">
+    <div class="sec-eyebrow en">Photo Gallery</div>
+    <div class="sec-eyebrow fr" style="display:none">Galerie Photos</div>
+    <h2 class="en">Our Products & Craft</h2>
+    <h2 class="fr" style="display:none">Nos Produits & Artisanat</h2>
+    <p class="en">Upload your professional photos below — each card is ready to display your image with a title and description.</p>
+    <p class="fr" style="display:none">Ajoutez vos photos professionnelles ci-dessous — chaque carte est prête à afficher votre image avec un titre et une description.</p>
+  </div>
+
+  <div class="photo-grid">
+
+    <!-- CARD 1 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">1</span>
+        <!-- Replace with: <img src="images/argan-oil.jpg" alt="Argan Oil"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/argan-oil.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/argan-oil.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">Pure Argan Oil</div>
+        <div class="photo-card-title fr" style="display:none">Huile d'Argan Pure</div>
+        <div class="photo-card-desc en">Cold-pressed, 100% pure argan oil from the Atlas</div>
+        <div class="photo-card-desc fr" style="display:none">Huile d'argan pure 100%, pression à froid</div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">2</span>
+        <!-- Replace with: <img src="images/amlou.jpg" alt="Amlou"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/amlou.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/amlou.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">Amlou</div>
+        <div class="photo-card-title fr" style="display:none">Amlou</div>
+        <div class="photo-card-desc en">Traditional Berber spread — argan, almonds & honey</div>
+        <div class="photo-card-desc fr" style="display:none">Tartine berbère — argan, amandes & miel</div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">3</span>
+        <!-- Replace with: <img src="images/cosmetic.jpg" alt="Cosmetic Products"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/cosmetic.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/cosmetic.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">Cosmetic Range</div>
+        <div class="photo-card-title fr" style="display:none">Gamme Cosmétique</div>
+        <div class="photo-card-desc en">Natural beauty products handmade with argan</div>
+        <div class="photo-card-desc fr" style="display:none">Produits de beauté naturels à l'argan</div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">4</span>
+        <!-- Replace with: <img src="images/crafting.jpg" alt="Crafting Process"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/crafting.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/crafting.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">The Crafting Process</div>
+        <div class="photo-card-title fr" style="display:none">Le Processus de Fabrication</div>
+        <div class="photo-card-desc en">Hands cracking argan kernels the traditional way</div>
+        <div class="photo-card-desc fr" style="display:none">Craquage des noyaux d'argan à la manière traditionnelle</div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">5</span>
+        <!-- Replace with: <img src="images/packaging.jpg" alt="Packaging"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/packaging.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/packaging.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">Our Packaging</div>
+        <div class="photo-card-title fr" style="display:none">Notre Emballage</div>
+        <div class="photo-card-desc en">Beautifully presented, ready to take home</div>
+        <div class="photo-card-desc fr" style="display:none">Joliment présenté, prêt à emporter</div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="photo-card">
+      <div class="photo-card-img">
+        <span class="photo-num">6</span>
+        <!-- Replace with: <img src="images/atlas.jpg" alt="Atlas Mountains"> -->
+        <div class="photo-placeholder">
+          <span class="photo-placeholder-icon">📷</span>
+          <span class="photo-placeholder-label en">images/atlas.jpg</span>
+          <span class="photo-placeholder-label fr" style="display:none">images/atlas.jpg</span>
+        </div>
+      </div>
+      <div class="photo-card-body">
+        <div class="photo-card-title en">The Atlas Origins</div>
+        <div class="photo-card-title fr" style="display:none">Les Origines de l'Atlas</div>
+        <div class="photo-card-desc en">Argan trees native to the Atlas Mountains</div>
+        <div class="photo-card-desc fr" style="display:none">Arganiers natifs des montagnes de l'Atlas</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VALUES STRIP -->
+  <div class="values-strip">
+    <div class="value-item">
+      <span class="value-icon">🌿</span>
+      <div class="value-title en">100% Natural</div>
+      <div class="value-title fr" style="display:none">100% Naturel</div>
+      <div class="value-desc en">No additives, no preservatives. Pure Atlas craft.</div>
+      <div class="value-desc fr" style="display:none">Sans additifs ni conservateurs. Artisanat pur.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">👐</span>
+      <div class="value-title en">Handmade</div>
+      <div class="value-title fr" style="display:none">Fait Main</div>
+      <div class="value-desc en">Every product made by hand, the traditional way.</div>
+      <div class="value-desc fr" style="display:none">Chaque produit fait à la main, à la façon traditionnelle.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">♀️</span>
+      <div class="value-title en">Women-Led</div>
+      <div class="value-title fr" style="display:none">Dirigé par des Femmes</div>
+      <div class="value-desc en">Supporting and empowering Atlas Mountain women.</div>
+      <div class="value-desc fr" style="display:none">Soutien et autonomisation des femmes de l'Atlas.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">🏔️</span>
+      <div class="value-title en">Atlas Origin</div>
+      <div class="value-title fr" style="display:none">Origine Atlas</div>
+      <div class="value-desc en">Sourced directly from the Moroccan Atlas Mountains.</div>
+      <div class="value-desc fr" style="display:none">Directement des montagnes de l'Atlas marocain.</div>
+    </div>
+  </div>
+
+  <!-- TEAM SECTION -->
+  <div class="team-section">
+    <div class="team-photo">
+      <!-- Replace with: <img src="images/team.jpg" alt="The Afousse Team"> -->
+      <div class="photo-placeholder">
+        <span class="photo-placeholder-icon">👩‍👩‍👧‍👧</span>
+        <span class="photo-placeholder-text en">Photo of the Afousse team<br>The women behind the brand</span>
+        <span class="photo-placeholder-text fr" style="display:none">Photo de l'équipe Afousse<br>Les femmes derrière la marque</span>
+        <span class="photo-placeholder-label en">Replace with: images/team.jpg</span>
+        <span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/team.jpg</span>
+      </div>
+    </div>
+    <div class="team-text">
+      <h3 class="en">Meet the <em>women</em><br>of Afousse</h3>
+      <h3 class="fr" style="display:none">Rencontrez les <em>femmes</em><br>d'Afousse</h3>
+      <p class="en">The Afousse Association is made up of dedicated women from villages across the Atlas Mountains. Each one brings generations of knowledge about argan harvesting, cracking, pressing and crafting.</p>
+      <p class="fr" style="display:none">L'Association Afousse est composée de femmes dévouées de villages à travers les montagnes de l'Atlas. Chacune apporte des générations de savoir-faire sur la récolte, le craquage, la pression et la fabrication de l'argan.</p>
+      <p class="en">When you stop at Golden Afouss, you meet them directly. Their work, their stories, and their products are all here waiting for you.</p>
+      <p class="fr" style="display:none">Lorsque vous vous arrêtez à Golden Afouss, vous les rencontrez directement. Leur travail, leurs histoires et leurs produits vous attendent ici.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="argan-cta">
+    <h3 class="en">Come visit us on the road</h3>
+    <h3 class="fr" style="display:none">Venez nous rendre visite sur la route</h3>
+    <p class="en">Stop by Golden Afouss on the Atlas Mountain road. Browse our products, meet the women behind them, and enjoy a Moroccan meal with a view.</p>
+    <p class="fr" style="display:none">Arrêtez-vous à Golden Afouss sur la route de l'Atlas. Découvrez nos produits, rencontrez les femmes qui les fabriquent et savourez un repas marocain avec vue.</p>
+    <div class="argan-cta-btns">
+      <a class="btn-gold" href="menu.html">
+        <span class="en">View Our Menu</span>
+        <span class="fr" style="display:none">Voir Notre Menu</span>
+      </a>
+      <a class="btn-primary" href="booking.html">
+        <span class="en">Book Your Group</span>
+        <span class="fr" style="display:none">Réserver votre Groupe</span>
+      </a>
+    </div>
+  </div>
+
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
       <div class="footer-logo"><em>Golden</em> Afouss</div>
-      <div class="footer-tagline en">A Moroccan mountain café where flavour meets stunning views.</div>
-      <div class="footer-tagline fr" style="display:none">Un café marocain de montagne où saveurs et vues se rencontrent.</div>
+      <div class="footer-tagline en">A Moroccan mountain restaurant where flavour meets stunning views and authentic crafts.</div>
+      <div class="footer-tagline fr" style="display:none">Un restaurant marocain de montagne où saveurs, vues et artisanat se rencontrent.</div>
     </div>
     <div class="footer-col">
       <h4 class="en">Pages</h4><h4 class="fr" style="display:none">Pages</h4>
       <a href="index.html" class="en">Home</a><a href="index.html" class="fr" style="display:none">Accueil</a>
-      <a href="menu.html">Menu</a>
-      <a href="argan.html" class="en">Argan Boutique</a><a href="argan.html" class="fr" style="display:none">Boutique Argan</a>
+      <a href="menu.html" class="en">Menu</a><a href="menu.html" class="fr" style="display:none">Menu</a>
+      <a href="argan.html" class="en">Argan</a><a href="argan.html" class="fr" style="display:none">Argan</a>
       <a href="booking.html" class="en">Book Now</a><a href="booking.html" class="fr" style="display:none">Réserver</a>
       <a href="about.html" class="en">About Us</a><a href="about.html" class="fr" style="display:none">À Propos</a>
     </div>
@@ -198,9 +603,5 @@
 </footer>
 
 <script src="js/app.js"></script>
-<a class="floating-cart" href="booking.html">
-  🛒 <span class="en">View Booking</span><span class="fr" style="display:none">Voir Réservation</span>
-  <span id="cart-badge"></span>
-</a>
 </body>
 </html>
