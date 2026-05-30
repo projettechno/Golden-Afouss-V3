@@ -170,10 +170,9 @@ function calcTotal() {
   return Math.round(sum * 1.1);
 }
 
-// ─── STRICT VALIDATION GATEKEEPER (With Date/Time Checks) ───
+// ─── STRICT VALIDATION GATEKEEPER ───
 function validateBooking() {
   const isFr = currentLang === 'fr';
-
   if (Object.keys(sel).length === 0) {
     showToast(isFr ? "Sélectionnez des articles." : 'Please select items from the menu first.'); return false;
   }
@@ -186,40 +185,33 @@ function validateBooking() {
     showToast(isFr ? "Entrez une taille de groupe valide." : 'Please enter a valid Group Size.');
     document.getElementById('group-size').focus(); return false;
   }
-  
   const dateVal = getField('arrival-date');
   if (!dateVal) {
     showToast(isFr ? "Sélectionnez une date." : 'Please select an Arrival Date.');
     document.getElementById('arrival-date').focus(); return false;
   }
-  
   const today = new Date(); today.setHours(0,0,0,0);
   const selectedDate = new Date(dateVal + 'T00:00:00');
-  
   if (selectedDate < today) {
     showToast(isFr ? "La date ne peut pas être dans le passé." : 'Date cannot be in the past.');
     document.getElementById('arrival-date').focus(); return false;
   }
-
   const timeVal = getField('arrival-time');
   if (!timeVal) {
     showToast(isFr ? "Sélectionnez une heure." : 'Please select an Arrival Time.');
     document.getElementById('arrival-time').focus(); return false;
   }
-
   if (selectedDate.getTime() === today.getTime()) {
     const now = new Date();
     const [h, m] = timeVal.split(':');
     const selectedDateTime = new Date();
     selectedDateTime.setHours(parseInt(h), parseInt(m), 0, 0);
     selectedDateTime.setMinutes(selectedDateTime.getMinutes() - 15); 
-
     if (selectedDateTime <= now) {
       showToast(isFr ? "L'heure est déjà passée pour aujourd'hui." : 'Time has already passed for today. Please select a future time.');
       document.getElementById('arrival-time').focus(); return false;
     }
   }
-
   return true; 
 }
 
@@ -230,7 +222,6 @@ function buildWAMsg() {
   let orderLines = '';
   Object.keys(sel).forEach(function(id) { orderLines += '\n- ' + sel[id].name + (sel[id].price ? ' (' + sel[id].price + ')' : '') + ' x' + sel[id].qty; });
   let msg = '';
-  
   if (currentLang === 'fr') {
     msg = 'Golden Afouss - Réservation de Groupe' + sep + '\nContact : ' + n + '\nGroupe : ' + s + ' personnes' + '\nDate : ' + d + '\nHeure : ' + t + sep + '\nCOMMANDE :' + (orderLines || '\n- Aucun article') + sep;
     if (total > 0) msg += '\nTOTAL : ' + total + ' MAD (Inclut 10% de pourboire)';
@@ -250,11 +241,9 @@ function sendWA(e) {
   const isFr = currentLang === 'fr';
   if (!navigator.onLine) return showToast(isFr ? "Hors ligne." : 'You are offline.');
   if (!validateBooking()) return;
-  
   try {
     safeSet('ga_last_order', sel);
     clearFormData(); 
-    
     const msg = buildWAMsg();
     window.open('https://wa.me/' + WA_PHONE + '?text=' + encodeURIComponent(msg), '_blank');
   } catch (e) { showToast('Error opening WhatsApp.'); }
@@ -265,11 +254,9 @@ function sendEM(e) {
   const isFr = currentLang === 'fr';
   if (!navigator.onLine) return showToast(isFr ? "Hors ligne." : 'You are offline.');
   if (!validateBooking()) return;
-  
   try {
     safeSet('ga_last_order', sel);
     clearFormData(); 
-    
     const msg = buildWAMsg();
     const subject = isFr ? 'Nouvelle Réservation - Golden Afouss' : 'New Group Booking - Golden Afouss';
     window.location.href = 'mailto:goldenafouss@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
