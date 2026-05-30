@@ -20,7 +20,7 @@ function loadFooter() {
         <div class="footer-col">
           <h4 class="en">Pages</h4><h4 class="fr" style="display:none">Pages</h4>
           <a href="index.html" class="en">Home</a><a href="index.html" class="fr" style="display:none">Accueil</a>
-          <a href="menue.html" class="en">Menu</a><a href="menue.html" class="fr" style="display:none">Menu</a>
+          <a href="menu.html" class="en">Menu</a><a href="menu.html" class="fr" style="display:none">Menu</a>
           <a href="argan.html" class="en">Argan</a><a href="argan.html" class="fr" style="display:none">Argan</a>
           <a href="booking.html" class="en">Book Now</a><a href="booking.html" class="fr" style="display:none">Réserver</a>
           <a href="about.html" class="en">About Us</a><a href="about.html" class="fr" style="display:none">À Propos</a>
