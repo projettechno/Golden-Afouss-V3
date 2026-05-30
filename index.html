@@ -7,274 +7,103 @@
   <meta name="description" content="A mountain-side café & restaurant on the Atlas road. Moroccan food, mint tea, stunning views & authentic argan products. Book your group before you arrive.">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* HERO */
-    .hero {
-      background: var(--ink);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-pattern {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
-      background-size: 24px 24px;
-    }
+    .hero { background: var(--ink); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
+    .hero-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%); background-size: 24px 24px; }
     .hero-inner { position: relative; z-index: 1; max-width: 780px; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold2); margin-bottom: 32px; font-weight: 400;
-    }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 14px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold2); margin-bottom: 32px; font-weight: 400; }
     .hero-line { width: 36px; height: 1px; background: var(--gold); }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(60px, 11vw, 110px);
-      font-weight: 300; color: var(--cream);
-      line-height: 1.0; margin-bottom: 8px; letter-spacing: -0.01em;
-    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px, 11vw, 110px); font-weight: 300; color: var(--cream); line-height: 1.0; margin-bottom: 8px; letter-spacing: -0.01em; }
     .hero h1 em { color: var(--gold2); font-style: italic; }
-    .hero-tagline {
-      font-size: 13px; color: rgba(253,250,243,0.4);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 44px; font-weight: 300;
-    }
+    .hero-tagline { font-size: 13px; color: rgba(253,250,243,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 44px; font-weight: 300; }
     .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
-    .hero-stats {
-      display: flex; gap: 48px; justify-content: center;
-      border-top: 1px solid rgba(253,250,243,0.08); padding-top: 32px;
-    }
+    .hero-stats { display: flex; gap: 48px; justify-content: center; border-top: 1px solid rgba(253,250,243,0.08); padding-top: 32px; }
     .hero-stat { text-align: center; }
-    .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px; font-weight: 300; color: var(--gold2); display: block;
-    }
-    .hero-stat-lbl {
-      font-size: 11px; color: rgba(253,250,243,0.3);
-      text-transform: uppercase; letter-spacing: 0.1em;
-    }
-
-    /* FEATURES STRIP */
-    .features {
-      background: var(--cream2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 32px 28px;
-    }
-    .features-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .feature-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 16px; border-radius: var(--r2);
-      background: var(--cream); border: 1px solid var(--border);
-      transition: all .2s; text-decoration: none; color: inherit;
-    }
+    .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--gold2); display: block; }
+    .hero-stat-lbl { font-size: 11px; color: rgba(253,250,243,0.3); text-transform: uppercase; letter-spacing: 0.1em; }
+    .features { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 28px; }
+    .features-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .feature-item { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: var(--r2); background: var(--cream); border: 1px solid var(--border); transition: all .2s; text-decoration: none; color: inherit; }
     .feature-item:hover { border-color: var(--gold); transform: translateY(-2px); }
     .feature-icon { font-size: 26px; flex-shrink: 0; }
     .feature-text {}
     .feature-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
     .feature-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
-
-    /* ABOUT SECTION */
     .about-section { padding: 80px 28px; max-width: 1100px; margin: 0 auto; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-text .sec-eyebrow { margin-bottom: 12px; }
-    .about-text h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px; font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 20px;
-    }
+    .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
     .about-text h2 em { color: var(--gold); font-style: italic; }
     .about-text p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
-    .about-visual {
-      background: var(--ink); border-radius: var(--r2);
-      padding: 48px 40px; position: relative; overflow: hidden;
-    }
-    .about-visual-pat {
-      position: absolute; inset: 0; opacity: 0.05;
-      background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40%);
-      background-size: 18px 18px;
-    }
+    .about-visual { background: var(--ink); border-radius: var(--r2); padding: 48px 40px; position: relative; overflow: hidden; }
+    .about-visual-pat { position: absolute; inset: 0; opacity: 0.05; background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40%); background-size: 18px 18px; }
     .about-visual-content { position: relative; }
-    .about-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 300; font-style: italic;
-      color: var(--cream); line-height: 1.4; margin-bottom: 24px;
-    }
+    .about-quote { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.4; margin-bottom: 24px; }
     .about-quote-attr { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold2); }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
     .about-stat { text-align: center; }
-    .about-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px; font-weight: 300; color: var(--gold2); display: block; margin-bottom: 4px;
-    }
+    .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--gold2); display: block; margin-bottom: 4px; }
     .about-stat-lbl { font-size: 11px; color: rgba(253,250,243,0.35); text-transform: uppercase; letter-spacing: 0.08em; }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--gold-pale);
-      border-top: 1px solid var(--border2);
-      border-bottom: 1px solid var(--border2);
-      padding: 60px 28px;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px; font-weight: 300; color: var(--ink);
-      margin-bottom: 12px;
-    }
+    .cta-section { background: var(--gold-pale); border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); padding: 60px 28px; text-align: center; }
+    .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--ink); margin-bottom: 12px; }
     .cta-section p { font-size: 15px; color: var(--muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; }
     .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    @media (max-width: 900px) {
-      .features-inner { grid-template-columns: 1fr 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hero h1 { font-size: 56px; }
-      .hero-stats { gap: 28px; }
-    }
-    @media (max-width: 540px) {
-      .features-inner { grid-template-columns: 1fr; }
-      .hero-stats { flex-direction: column; gap: 20px; }
-      .cta-btns { flex-direction: column; align-items: center; }
-    }
+    @media (max-width: 900px) { .features-inner { grid-template-columns: 1fr 1fr; } .about-grid { grid-template-columns: 1fr; gap: 32px; } .hero h1 { font-size: 56px; } .hero-stats { gap: 28px; } }
+    @media (max-width: 540px) { .features-inner { grid-template-columns: 1fr; } .hero-stats { flex-direction: column; gap: 20px; } .cta-btns { flex-direction: column; align-items: center; } }
   </style>
 </head>
 <body>
-
 <div class="toast-wrap"><div class="toast" id="toast"></div></div>
-
-<!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
   <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
 </div>
-
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner" style="position:relative">
     <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
-    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a class="nav-link active" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
+      <a class="nav-link active" href="menue.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
       <a class="nav-link" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan</span></a>
       <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
       <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
     </div>
   </div>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="hero-line"></span>
-      <span class="en">Atlas Mountains · Marrakech Road</span>
-      <span class="fr" style="display:none">Montagnes de l'Atlas · Route de Marrakech</span>
-      <span class="hero-line"></span>
-    </div>
+    <div class="hero-eyebrow"><span class="hero-line"></span><span class="en">Atlas Mountains · Marrakech Road</span><span class="fr" style="display:none">Montagnes de l'Atlas · Route de Marrakech</span><span class="hero-line"></span></div>
     <h1><em>Golden</em><br>Afouss</h1>
-    <div class="hero-tagline">
-      <span class="en">Moroccan Flavours · Mountain Views · Authentic Crafts</span>
-      <span class="fr" style="display:none">Saveurs Marocaines · Vues Panoramiques · Artisanat</span>
-    </div>
+    <div class="hero-tagline"><span class="en">Moroccan Flavours · Mountain Views · Authentic Crafts</span><span class="fr" style="display:none">Saveurs Marocaines · Vues Panoramiques · Artisanat</span></div>
     <div class="hero-ctas">
-      <a class="btn-gold" href="booking.html">
-        <span class="en">Book Your Group</span>
-        <span class="fr" style="display:none">Réserver votre Groupe</span>
-      </a>
-      <a href="menu.html" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:var(--r);border:1px solid rgba(253,250,243,0.2);color:rgba(253,250,243,0.7);text-decoration:none;font-size:14px;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='rgba(253,250,243,0.2)';this.style.color='rgba(253,250,243,0.7)'">
-        <span class="en">Explore Menu</span>
-        <span class="fr" style="display:none">Explorer le Menu</span>
-      </a>
+      <a class="btn-gold" href="booking.html"><span class="en">Book Your Group</span><span class="fr" style="display:none">Réserver votre Groupe</span></a>
+      <a href="menue.html" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:var(--r);border:1px solid rgba(253,250,243,0.2);color:rgba(253,250,243,0.7);text-decoration:none;font-size:14px;transition:all .2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='rgba(253,250,243,0.2)';this.style.color='rgba(253,250,243,0.7)'"><span class="en">Explore Menu</span><span class="fr" style="display:none">Explorer le Menu</span></a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">100%</span>
-        <span class="hero-stat-lbl en">Moroccan</span>
-        <span class="hero-stat-lbl fr" style="display:none">Marocain</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">2</span>
-        <span class="hero-stat-lbl en">Booking Methods</span>
-        <span class="hero-stat-lbl fr" style="display:none">Modes de Réservation</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">∞</span>
-        <span class="hero-stat-lbl en">Mountain Views</span>
-        <span class="hero-stat-lbl fr" style="display:none">Vues Panoramiques</span>
-      </div>
+      <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-lbl en">Moroccan</span><span class="hero-stat-lbl fr" style="display:none">Marocain</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-lbl en">Booking Methods</span><span class="hero-stat-lbl fr" style="display:none">Modes de Réservation</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">∞</span><span class="hero-stat-lbl en">Mountain Views</span><span class="hero-stat-lbl fr" style="display:none">Vues Panoramiques</span></div>
     </div>
   </div>
 </div>
-
-<!-- FEATURES STRIP -->
 <div class="features">
   <div class="features-inner">
-    <a class="feature-item" href="menu.html">
-      <span class="feature-icon">☕</span>
-      <div class="feature-text">
-        <div class="feature-title en">Café & Food</div>
-        <div class="feature-title fr" style="display:none">Café & Cuisine</div>
-        <div class="feature-desc en">Tajines, mint tea, salads & more</div>
-        <div class="feature-desc fr" style="display:none">Tajines, thé à la menthe, salades</div>
-      </div>
-    </a>
-    <a class="feature-item" href="about.html">
-      <span class="feature-icon">⛰️</span>
-      <div class="feature-text">
-        <div class="feature-title en">Mountain Terrace</div>
-        <div class="feature-title fr" style="display:none">Terrasse Panoramique</div>
-        <div class="feature-desc en">Breathtaking Atlas views</div>
-        <div class="feature-desc fr" style="display:none">Vues époustouflantes sur l'Atlas</div>
-      </div>
-    </a>
-    <a class="feature-item" href="argan.html">
-      <span class="feature-icon">🌿</span>
-      <div class="feature-text">
-        <div class="feature-title en">Argan</div>
-        <div class="feature-title fr" style="display:none">Boutique Argan</div>
-        <div class="feature-desc en">Women-made authentic products</div>
-        <div class="feature-desc fr" style="display:none">Produits artisanaux féminins</div>
-      </div>
-    </a>
-    <a class="feature-item" href="booking.html">
-      <span class="feature-icon">📋</span>
-      <div class="feature-text">
-        <div class="feature-title en">Group Booking</div>
-        <div class="feature-title fr" style="display:none">Réservation Groupe</div>
-        <div class="feature-desc en">Pre-order via WhatsApp or Email</div>
-        <div class="feature-desc fr" style="display:none">Pré-commander via WhatsApp ou Email</div>
-      </div>
-    </a>
+    <a class="feature-item" href="menue.html"><span class="feature-icon">☕</span><div class="feature-text"><div class="feature-title en">Café & Food</div><div class="feature-title fr" style="display:none">Café & Cuisine</div><div class="feature-desc en">Tajines, mint tea, salads & more</div><div class="feature-desc fr" style="display:none">Tajines, thé à la menthe, salades</div></div></a>
+    <a class="feature-item" href="about.html"><span class="feature-icon">⛰️</span><div class="feature-text"><div class="feature-title en">Mountain Terrace</div><div class="feature-title fr" style="display:none">Terrasse Panoramique</div><div class="feature-desc en">Breathtaking Atlas views</div><div class="feature-desc fr" style="display:none">Vues époustouflantes sur l'Atlas</div></div></a>
+    <a class="feature-item" href="argan.html"><span class="feature-icon">🌿</span><div class="feature-text"><div class="feature-title en">Argan</div><div class="feature-title fr" style="display:none">Boutique Argan</div><div class="feature-desc en">Women-made authentic products</div><div class="feature-desc fr" style="display:none">Produits artisanaux féminins</div></div></a>
+    <a class="feature-item" href="booking.html"><span class="feature-icon">📋</span><div class="feature-text"><div class="feature-title en">Group Booking</div><div class="feature-title fr" style="display:none">Réservation Groupe</div><div class="feature-desc en">Pre-order via WhatsApp or Email</div><div class="feature-desc fr" style="display:none">Pré-commander via WhatsApp ou Email</div></div></a>
   </div>
 </div>
-
-<!-- ABOUT SECTION -->
 <div class="about-section">
   <div class="about-grid">
     <div class="about-text">
-      <div class="sec-eyebrow en">Our Story</div>
-      <div class="sec-eyebrow fr" style="display:none">Notre Histoire</div>
-      <h2 class="en">Where the <em>Atlas</em><br>speaks to you</h2>
-      <h2 class="fr" style="display:none">Là où l'<em>Atlas</em><br>vous parle</h2>
+      <div class="sec-eyebrow en">Our Story</div><div class="sec-eyebrow fr" style="display:none">Notre Histoire</div>
+      <h2 class="en">Where the <em>Atlas</em><br>speaks to you</h2><h2 class="fr" style="display:none">Là où l'<em>Atlas</em><br>vous parle</h2>
       <p class="en">Nestled on the road through the Atlas Mountains outside Marrakech, Golden Afouss is more than a stop — it's an experience of Moroccan warmth, authentic flavour, and tradition.</p>
       <p class="fr" style="display:none">Niché sur la route des montagnes de l'Atlas près de Marrakech, Golden Afouss est plus qu'un arrêt — c'est une expérience de chaleur marocaine et de tradition authentique.</p>
       <p class="en">Tour leaders can pre-book their group's full order online — food, drinks, and argan products — so everything is ready the moment they arrive.</p>
       <p class="fr" style="display:none">Les responsables de groupes peuvent pré-réserver leur commande en ligne — nourriture, boissons et produits argan — pour que tout soit prêt à l'arrivée.</p>
-      <a class="btn-primary" href="about.html" style="margin-top:8px;display:inline-flex;">
-        <span class="en">Learn More</span>
-        <span class="fr" style="display:none">En savoir plus</span>
-      </a>
+      <a class="btn-primary" href="about.html" style="margin-top:8px;display:inline-flex;"><span class="en">Learn More</span><span class="fr" style="display:none">En savoir plus</span></a>
     </div>
     <div class="about-visual">
       <div class="about-visual-pat"></div>
@@ -282,77 +111,25 @@
         <div class="about-quote">"A place where the Atlas speaks to you over a glass of mint tea."</div>
         <div class="about-quote-attr">— Golden Afouss</div>
         <div class="about-stats">
-          <div class="about-stat">
-            <span class="about-stat-num">100%</span>
-            <span class="about-stat-lbl en">Moroccan</span>
-            <span class="about-stat-lbl fr" style="display:none">Marocain</span>
-          </div>
-          <div class="about-stat">
-            <span class="about-stat-num">Atlas</span>
-            <span class="about-stat-lbl en">Mountain Road</span>
-            <span class="about-stat-lbl fr" style="display:none">Route de l'Atlas</span>
-          </div>
+          <div class="about-stat"><span class="about-stat-num">100%</span><span class="about-stat-lbl en">Moroccan</span><span class="about-stat-lbl fr" style="display:none">Marocain</span></div>
+          <div class="about-stat"><span class="about-stat-num">Atlas</span><span class="about-stat-lbl en">Mountain Road</span><span class="about-stat-lbl fr" style="display:none">Route de l'Atlas</span></div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- CTA -->
 <div class="cta-section">
-  <h2 class="en">Ready to visit?</h2>
-  <h2 class="fr" style="display:none">Prêt à nous rendre visite ?</h2>
+  <h2 class="en">Ready to visit?</h2><h2 class="fr" style="display:none">Prêt à nous rendre visite ?</h2>
   <p class="en">Book your group's order in advance via WhatsApp or Email — everything will be prepared and waiting when you arrive.</p>
   <p class="fr" style="display:none">Réservez la commande de votre groupe à l'avance par WhatsApp ou Email — tout sera prêt à votre arrivée.</p>
   <div class="cta-btns">
-    <a class="btn-gold" href="booking.html">
-      <span class="en">Book Now</span>
-      <span class="fr" style="display:none">Réserver Maintenant</span>
-    </a>
-    <a class="btn-primary" href="menu.html">
-      <span class="en">View Menu</span>
-      <span class="fr" style="display:none">Voir le Menu</span>
-    </a>
+    <a class="btn-gold" href="booking.html"><span class="en">Book Now</span><span class="fr" style="display:none">Réserver Maintenant</span></a>
+    <a class="btn-primary" href="menue.html"><span class="en">View Menu</span><span class="fr" style="display:none">Voir le Menu</span></a>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><em>Golden</em> Afouss</div>
-      <div class="footer-tagline en">A Moroccan mountain café where flavour meets stunning views and authentic crafts.</div>
-      <div class="footer-tagline fr" style="display:none">Un café marocain de montagne où saveurs, vues et artisanat se rencontrent.</div>
-    </div>
-    <div class="footer-col">
-      <h4 class="en">Pages</h4>
-      <h4 class="fr" style="display:none">Pages</h4>
-      <a href="index.html" class="en">Home</a>
-      <a href="index.html" class="fr" style="display:none">Accueil</a>
-      <a href="menu.html" class="en">Menu</a>
-      <a href="menu.html" class="fr" style="display:none">Menu</a>
-      <a href="argan.html" class="en">Argan</a>
-      <a href="argan.html" class="fr" style="display:none">Boutique Argan</a>
-      <a href="booking.html" class="en">Book Now</a>
-      <a href="booking.html" class="fr" style="display:none">Réserver</a>
-      <a href="about.html" class="en">About Us</a>
-      <a href="about.html" class="fr" style="display:none">À Propos</a>
-    </div>
-    <div class="footer-col">
-      <h4 class="en">Contact</h4>
-      <h4 class="fr" style="display:none">Contact</h4>
-      <p>WhatsApp: +212 639 339 952</p>
-      <p>Email: goldenafouss@gmail.com</p>
-      <p id="footer-hours">Open to visitors — contact us for details</p>
-      <p id="footer-location">Atlas Mountains Road, Marrakech, Morocco</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span id="footer-rights">© 2026 Golden Afouss. All rights reserved.</span>
-    <span id="footer-built">Built with love in the Atlas Mountains.</span>
-  </div>
-</footer>
-
+<div id="footer-container"></div>
+<script src="js/components.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
