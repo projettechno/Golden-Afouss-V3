@@ -119,14 +119,31 @@ function updateSummary() {
     container.innerHTML = '<div class="sum-empty">' + T[lang]['sum-empty'] + '</div>';
     return;
   }
-  container.innerHTML = keys.map(id => {
-    const it = sel[id];
-    const n  = lang === 'fr' && it.namefr ? it.namefr : it.name;
-    return `<div class="sum-item">
-      <span>${n}${it.price ? ` <span style="opacity:.4;font-size:11px">${it.price}</span>` : ''}</span>
-      <span class="sum-qty">×${it.qty}</span>
-    </div>`;
+
+  const itemsHTML = keys.map(id => {
+    const it  = sel[id];
+    const n   = lang === 'fr' && it.namefr ? it.namefr : it.name;
+    const num = parseFloat((it.price || '').replace(/[^\d.]/g, ''));
+    const lineTotal = !isNaN(num) ? num * it.qty : 0;
+    return '<div class="sum-item">'
+      + '<span>' + n + (it.price ? ' <span style="opacity:.4;font-size:11px">' + it.price + '</span>' : '') + '</span>'
+      + '<span style="display:flex;align-items:center;gap:6px">'
+      + '<span class="sum-qty">x' + it.qty + '</span>'
+      + (lineTotal ? '<span style="font-size:11px;color:var(--gold2);opacity:.7">' + lineTotal + ' MAD</span>' : '')
+      + '</span>'
+      + '</div>';
   }).join('');
+
+  const total = calcTotal();
+  const totalHTML = total > 0
+    ? '<div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(184,135,58,0.3);display:flex;justify-content:space-between;align-items:center;">'
+      + '<span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold2);">Total</span>'
+      + '<span style="font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:400;color:var(--gold2);">' + total + ' MAD</span>'
+      + '</div>'
+      + '<div style="font-size:11px;color:rgba(253,250,243,0.3);text-align:right;margin-top:3px;">+ 10% service tip</div>'
+    : '';
+
+  container.innerHTML = itemsHTML + totalHTML;
 }
 
 function clearAll() {
@@ -174,17 +191,36 @@ function getField(id) {
   return document.getElementById(id)?.value?.trim() || '';
 }
 
+// ── Total calculator ──
+function calcTotal() {
+  let total = 0;
+  Object.keys(sel).forEach(id => {
+    const priceStr = sel[id].price || '';
+    // Extract numeric value from e.g. "80 MAD" or "100 MAD"
+    const num = parseFloat(priceStr.replace(/[^\d.]/g, ''));
+    if (!isNaN(num)) total += num * sel[id].qty;
+  });
+  return total;
+}
+
 // ── Message builders ──
 function buildWAMsg() {
-  const n  = getField('contact-name') || '—';
-  const s  = getField('group-size')   || '—';
-  const d  = formatDate(getField('arrival-date'));
-  const t  = formatTime(getField('arrival-time'));
-  const nt = getField('notes');
+  const n     = getField('contact-name') || '—';
+  const s     = getField('group-size')   || '—';
+  const d     = formatDate(getField('arrival-date'));
+  const t     = formatTime(getField('arrival-time'));
+  const nt    = getField('notes');
+  const total = calcTotal();
+
   const order = Object.keys(sel).map(id =>
     `• ${sel[id].name}${sel[id].price ? ' (' + sel[id].price + ')' : ''} × ${sel[id].qty}`
   ).join('\n');
-  return `🌿 *Golden Afouss — Group Booking*\n───────────────────\n👤 Contact: ${n}\n👥 Group: ${s} people\n📅 Date: ${d}\n⏰ Time: ${t}\n───────────────────\n🛒 Order:\n${order || 'No items'}${nt ? '\n───────────────────\n📝 Notes: ' + nt : ''}\n───────────────────\nSent from goldenafouss.com`;
+
+  const totalLine = total > 0
+    ? `\n───────────────────\n💰 *TOTAL: ${total} MAD*\n   _(+ 10% service tip)_`
+    : '';
+
+  return `🌿 *Golden Afouss — Group Booking*\n───────────────────\n👤 Contact: ${n}\n👥 Group: ${s} people\n📅 Date: ${d}\n⏰ Time: ${t}\n───────────────────\n🛒 *Order:*\n${order || 'No items'}${totalLine}${nt ? '\n───────────────────\n📝 Notes: ' + nt : ''}\n───────────────────\nSent from goldenafouss.com`;
 }
 
 function sendWA(e) {
@@ -196,16 +232,21 @@ function sendWA(e) {
 function sendEM(e) {
   if (e) e.preventDefault();
   if (!Object.keys(sel).length) { showToast(T[lang]['toast-empty']); return; }
-  const n  = getField('contact-name') || '—';
-  const s  = getField('group-size')   || '—';
-  const d  = formatDate(getField('arrival-date'));
-  const t  = formatTime(getField('arrival-time'));
-  const nt = getField('notes');
+  const n     = getField('contact-name') || '—';
+  const s     = getField('group-size')   || '—';
+  const d     = formatDate(getField('arrival-date'));
+  const t     = formatTime(getField('arrival-time'));
+  const nt    = getField('notes');
+  const total = calcTotal();
+
   const order = Object.keys(sel).map(id =>
     `- ${sel[id].name}${sel[id].price ? ' (' + sel[id].price + ')' : ''} x${sel[id].qty}`
   ).join('\n');
-  const subj = `Group Booking – Golden Afouss – ${d}`;
-  const body = `Golden Afouss – Group Booking\n\nContact: ${n}\nGroup size: ${s}\nDate: ${d}\nTime: ${t}\n\nORDER:\n${order}${nt ? '\n\nNotes: ' + nt : ''}\n\nSent from goldenafouss.com`;
+
+  const totalLine = total > 0 ? `\n\n💰 TOTAL: ${total} MAD (+ 10% service tip)` : '';
+
+  const subj = `Group Booking – Golden Afouss – ${d} – ${total > 0 ? total + ' MAD' : ''}`;
+  const body = `Golden Afouss – Group Booking\n\nContact: ${n}\nGroup size: ${s}\nDate: ${d}\nTime: ${t}\n\nORDER:\n${order}${totalLine}${nt ? '\n\nNotes: ' + nt : ''}\n\nSent from goldenafouss.com`;
   window.location.href = `mailto:${EM}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
 }
 
