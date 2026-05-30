@@ -7,314 +7,68 @@
   <meta name="description" content="Discover the Golden Afouss Argan story — authentic argan products handcrafted by the women of the Atlas Mountains.">
   <link rel="stylesheet" href="css/style.css">
   <style>
-
-    /* ── HERO BANNER ── */
-    .argan-hero {
-      background: var(--green);
-      border-radius: var(--r2);
-      padding: 56px 48px;
-      margin-bottom: 48px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .argan-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      opacity: 0.06;
-      background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 30%);
-      background-size: 18px 18px;
-    }
+    .argan-hero { background: var(--green); border-radius: var(--r2); padding: 56px 48px; margin-bottom: 48px; position: relative; overflow: hidden; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .argan-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 30%); background-size: 18px 18px; }
     .argan-hero-text { position: relative; flex: 1; min-width: 260px; }
-    .argan-hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 14px;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .argan-hero-eyebrow::before,
-    .argan-hero-eyebrow::after {
-      content: '';
-      width: 24px; height: 1px;
-      background: rgba(255,255,255,0.25);
-    }
-    .argan-hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 300;
-      color: white;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
+    .argan-hero-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; font-weight: 400; display: flex; align-items: center; gap: 10px; }
+    .argan-hero-eyebrow::before, .argan-hero-eyebrow::after { content: ''; width: 24px; height: 1px; background: rgba(255,255,255,0.25); }
+    .argan-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 300; color: white; line-height: 1.1; margin-bottom: 16px; }
     .argan-hero h1 em { color: var(--gold2); font-style: italic; }
-    .argan-hero p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.8;
-      max-width: 500px;
-    }
-    .argan-hero-badge {
-      position: relative;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--r2);
-      padding: 24px 28px;
-      text-align: center;
-      min-width: 160px;
-    }
+    .argan-hero p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 500px; }
+    .argan-hero-badge { position: relative; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--r2); padding: 24px 28px; text-align: center; min-width: 160px; }
     .argan-hero-badge-icon { font-size: 36px; display: block; margin-bottom: 10px; }
-    .argan-hero-badge-label {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.6;
-    }
-    .argan-hero-badge-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      color: var(--gold2);
-      margin-top: 4px;
-    }
-
-    /* ── STORY SECTION ── */
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-bottom: 56px;
-      align-items: center;
-    }
+    .argan-hero-badge-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    .argan-hero-badge-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold2); margin-top: 4px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 56px; align-items: center; }
     .story-text .sec-eyebrow { margin-bottom: 10px; }
-    .story-text h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
+    .story-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 300; color: var(--ink); line-height: 1.15; margin-bottom: 18px; }
     .story-text h2 em { color: var(--gold); font-style: italic; }
-    .story-text p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 14px;
-    }
-    /* Main featured photo */
-    .story-photo {
-      border-radius: var(--r2);
-      overflow: hidden;
-      position: relative;
-      aspect-ratio: 4/5;
-      background: var(--cream2);
-      border: 1px solid var(--border);
-    }
-    .story-photo img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .photo-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--muted);
-      padding: 24px;
-      text-align: center;
-    }
+    .story-text p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+    .story-photo { border-radius: var(--r2); overflow: hidden; position: relative; aspect-ratio: 4/5; background: var(--cream2); border: 1px solid var(--border); }
+    .story-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--muted); padding: 24px; text-align: center; }
     .photo-placeholder-icon { font-size: 40px; opacity: 0.4; }
-    .photo-placeholder-text {
-      font-size: 13px;
-      line-height: 1.6;
-      opacity: 0.6;
-    }
-    .photo-placeholder-label {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.7;
-      margin-top: 4px;
-    }
-    /* How to replace note */
-    .photo-hint {
-      position: absolute;
-      bottom: 12px; left: 12px; right: 12px;
-      background: rgba(26,22,18,0.7);
-      color: rgba(253,250,243,0.7);
-      font-size: 11px;
-      padding: 8px 12px;
-      border-radius: var(--r);
-      text-align: center;
-      line-height: 1.5;
-      backdrop-filter: blur(4px);
-    }
-
-    /* ── PHOTO GALLERY ── */
-    .gallery-head {
-      margin-bottom: 28px;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 56px;
-    }
-    .photo-card {
-      border-radius: var(--r2);
-      overflow: hidden;
-      background: var(--cream2);
-      border: 1px solid var(--border);
-      transition: all .22s;
-      position: relative;
-    }
+    .photo-placeholder-text { font-size: 13px; line-height: 1.6; opacity: 0.6; }
+    .photo-placeholder-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-top: 4px; }
+    .photo-hint { position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(26,22,18,0.7); color: rgba(253,250,243,0.7); font-size: 11px; padding: 8px 12px; border-radius: var(--r); text-align: center; line-height: 1.5; backdrop-filter: blur(4px); }
+    .gallery-head { margin-bottom: 28px; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; }
+    .photo-card { border-radius: var(--r2); overflow: hidden; background: var(--cream2); border: 1px solid var(--border); transition: all .22s; position: relative; }
     .photo-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,22,18,0.08); }
-    .photo-card-img {
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      position: relative;
-    }
+    .photo-card-img { aspect-ratio: 1/1; overflow: hidden; position: relative; }
     .photo-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .photo-card-body { padding: 16px; }
-    .photo-card-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
-    .photo-card-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
-    /* Numbered placeholder badge */
-    .photo-num {
-      position: absolute;
-      top: 12px; left: 12px;
-      width: 28px; height: 28px;
-      background: var(--gold);
-      color: white;
-      border-radius: 50%;
-      font-size: 12px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-    }
-
-    /* ── VALUES STRIP ── */
-    .values-strip {
-      background: var(--ink);
-      border-radius: var(--r2);
-      padding: 40px;
-      margin-bottom: 48px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
+    .values-strip { background: var(--ink); border-radius: var(--r2); padding: 40px; margin-bottom: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .value-item { text-align: center; }
     .value-icon { font-size: 28px; display: block; margin-bottom: 10px; }
-    .value-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-weight: 400;
-      color: var(--cream);
-      margin-bottom: 6px;
-    }
+    .value-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--cream); margin-bottom: 6px; }
     .value-desc { font-size: 12px; color: rgba(253,250,243,0.4); line-height: 1.6; }
-
-    /* ── TEAM SECTION ── */
-    .team-section {
-      background: var(--gold-pale);
-      border: 1px solid var(--border2);
-      border-radius: var(--r2);
-      padding: 40px;
-      margin-bottom: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .team-photo {
-      border-radius: var(--r2);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      background: var(--cream2);
-      border: 1px solid var(--border);
-      position: relative;
-    }
+    .team-section { background: var(--gold-pale); border: 1px solid var(--border2); border-radius: var(--r2); padding: 40px; margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .team-photo { border-radius: var(--r2); overflow: hidden; aspect-ratio: 4/3; background: var(--cream2); border: 1px solid var(--border); position: relative; }
     .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .team-text h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
+    .team-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--ink); margin-bottom: 14px; line-height: 1.2; }
     .team-text h3 em { color: var(--gold); font-style: italic; }
     .team-text p { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 12px; }
-
-    /* ── CTA ── */
-    .argan-cta {
-      text-align: center;
-      padding: 20px 0 8px;
-    }
-    .argan-cta h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
+    .argan-cta { text-align: center; padding: 20px 0 8px; }
+    .argan-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--ink); margin-bottom: 10px; }
     .argan-cta p { font-size: 14px; color: var(--muted); margin-bottom: 28px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
     .argan-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .photo-grid { grid-template-columns: repeat(2, 1fr); }
-      .values-strip { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .argan-hero { padding: 32px 20px; gap: 24px; }
-      .argan-hero-badge { display: none; }
-      .story-grid { grid-template-columns: 1fr; }
-      .story-photo { aspect-ratio: 3/2; }
-      .photo-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .values-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; gap: 20px; }
-      .team-section { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; }
-      .team-photo { aspect-ratio: 3/2; }
-      .argan-cta-btns { flex-direction: column; align-items: stretch; }
-      .btn-primary, .btn-gold { width: 100%; justify-content: center; }
-    }
-    @media (max-width: 380px) {
-      .photo-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } .values-strip { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .argan-hero { padding: 32px 20px; gap: 24px; } .argan-hero-badge { display: none; } .story-grid { grid-template-columns: 1fr; } .story-photo { aspect-ratio: 3/2; } .photo-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .values-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; gap: 20px; } .team-section { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; } .team-photo { aspect-ratio: 3/2; } .argan-cta-btns { flex-direction: column; align-items: stretch; } .btn-primary, .btn-gold { width: 100%; justify-content: center; } }
+    @media (max-width: 380px) { .photo-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
 <div class="toast-wrap"><div class="toast" id="toast"></div></div>
-
-<!-- LANG BAR -->
 <div class="lang-bar">
   <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
   <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
 </div>
-
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-inner" style="position:relative">
     <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
-    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a class="nav-link" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
+      <a class="nav-link" href="menue.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
       <a class="nav-link active" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan</span></a>
       <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
       <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
@@ -322,176 +76,67 @@
   </div>
 </nav>
 
-<!-- MAIN -->
 <div class="main">
-
-  <!-- HERO BANNER -->
   <div class="argan-hero">
     <div class="argan-hero-text">
-      <div class="argan-hero-eyebrow">
-        <span class="en">Atlas Mountains · Pure & Natural</span>
-        <span class="fr" style="display:none">Montagnes de l'Atlas · Pur & Naturel</span>
-      </div>
-      <h1 class="en"><em>Golden Afouss</em><br>Argan</h1>
-      <h1 class="fr" style="display:none"><em>Golden Afouss</em><br>Argan</h1>
+      <div class="argan-hero-eyebrow"><span class="en">Atlas Mountains · Pure & Natural</span><span class="fr" style="display:none">Montagnes de l'Atlas · Pur & Naturel</span></div>
+      <h1 class="en"><em>Golden Afouss</em><br>Argan</h1><h1 class="fr" style="display:none"><em>Golden Afouss</em><br>Argan</h1>
       <p class="en">Handcrafted with care by the women of the Atlas Mountains. Pure, natural, and rooted in centuries of Berber tradition.</p>
       <p class="fr" style="display:none">Fabriqué avec soin par les femmes des montagnes de l'Atlas. Pur, naturel et ancré dans des siècles de tradition berbère.</p>
     </div>
     <div class="argan-hero-badge">
       <span class="argan-hero-badge-icon">🌿</span>
-      <div class="argan-hero-badge-label en">Women-Led<br>Cooperative</div>
-      <div class="argan-hero-badge-label fr" style="display:none">Coopérative<br>Féminine</div>
+      <div class="argan-hero-badge-label en">Women-Led<br>Cooperative</div><div class="argan-hero-badge-label fr" style="display:none">Coopérative<br>Féminine</div>
       <div class="argan-hero-badge-val">Afousse</div>
     </div>
   </div>
 
-  <!-- STORY SECTION -->
   <div class="story-grid">
     <div class="story-text">
-      <div class="sec-eyebrow en">Our Story</div>
-      <div class="sec-eyebrow fr" style="display:none">Notre Histoire</div>
-      <h2 class="en">Born from the <em>Atlas</em>,<br>made by its women</h2>
-      <h2 class="fr" style="display:none">Né de l'<em>Atlas</em>,<br>fait par ses femmes</h2>
+      <div class="sec-eyebrow en">Our Story</div><div class="sec-eyebrow fr" style="display:none">Notre Histoire</div>
+      <h2 class="en">Born from the <em>Atlas</em>,<br>made by its women</h2><h2 class="fr" style="display:none">Né de l'<em>Atlas</em>,<br>fait par ses femmes</h2>
       <p class="en">The Afousse Association was founded by a group of women from the Atlas Mountains region who wanted to preserve their ancestral knowledge and create a sustainable livelihood for their community.</p>
       <p class="fr" style="display:none">L'Association Afousse a été fondée par un groupe de femmes de la région de l'Atlas qui souhaitaient préserver leur savoir ancestral et créer une source de revenus durable pour leur communauté.</p>
       <p class="en">Every product is made by hand using traditional Berber methods passed down through generations — from cracking argan kernels to cold-pressing the oil. No shortcuts, no additives. Just pure Atlas craft.</p>
       <p class="fr" style="display:none">Chaque produit est fabriqué à la main selon les méthodes berbères traditionnelles transmises de génération en génération — du craquage des noyaux d'argan à la pression à froid de l'huile. Pas de raccourcis, pas d'additifs. Juste l'artisanat pur de l'Atlas.</p>
     </div>
     <div class="story-photo">
-      <!-- Replace src with your photo: <img src="images/argan-story.jpg" alt="Argan story"> -->
       <div class="photo-placeholder">
         <span class="photo-placeholder-icon">📷</span>
-        <span class="photo-placeholder-text en">Your featured photo here<br>Recommended: portrait format</span>
-        <span class="photo-placeholder-text fr" style="display:none">Votre photo principale ici<br>Recommandé : format portrait</span>
-        <span class="photo-placeholder-label en">Replace with: images/argan-story.jpg</span>
-        <span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/argan-story.jpg</span>
+        <span class="photo-placeholder-text en">Your featured photo here<br>Recommended: portrait format</span><span class="photo-placeholder-text fr" style="display:none">Votre photo principale ici<br>Recommandé : format portrait</span>
+        <span class="photo-placeholder-label en">Replace with: images/argan-story.jpg</span><span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/argan-story.jpg</span>
       </div>
       <div class="photo-hint en">📁 To add your photo: create an "images" folder, add your photo, then replace the placeholder div with: &lt;img src="images/argan-story.jpg"&gt;</div>
       <div class="photo-hint fr" style="display:none">📁 Pour ajouter votre photo : créez un dossier "images", ajoutez votre photo, puis remplacez le div par : &lt;img src="images/argan-story.jpg"&gt;</div>
     </div>
   </div>
 
-  <!-- GALLERY -->
   <div class="gallery-head sec-head">
-    <div class="sec-eyebrow en">Photo Gallery</div>
-    <div class="sec-eyebrow fr" style="display:none">Galerie Photos</div>
-    <h2 class="en">Our Products & Craft</h2>
-    <h2 class="fr" style="display:none">Nos Produits & Artisanat</h2>
-    <p class="en">Your professional photos will appear here. Each slot is ready — just replace the placeholder with your image.</p>
-    <p class="fr" style="display:none">Vos photos professionnelles apparaîtront ici. Chaque emplacement est prêt — remplacez simplement le placeholder par votre image.</p>
+    <div class="sec-eyebrow en">Photo Gallery</div><div class="sec-eyebrow fr" style="display:none">Galerie Photos</div>
+    <h2 class="en">Our Products & Craft</h2><h2 class="fr" style="display:none">Nos Produits & Artisanat</h2>
   </div>
-
   <div class="photo-grid">
-
-    <!-- PHOTO 1 — replace placeholder with: <img src="images/photo1.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 1</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHOTO 2 — replace placeholder with: <img src="images/photo2.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 2</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHOTO 3 — replace placeholder with: <img src="images/photo3.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 3</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHOTO 4 — replace placeholder with: <img src="images/photo4.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 4</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHOTO 5 — replace placeholder with: <img src="images/photo5.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 5</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHOTO 6 — replace placeholder with: <img src="images/photo6.jpg" alt="Golden Afouss"> -->
-    <div class="photo-card">
-      <div class="photo-card-img">
-        <div class="photo-placeholder">
-          <span class="photo-placeholder-icon">📷</span>
-          <span class="photo-placeholder-label">Photo 6</span>
-        </div>
-      </div>
-    </div>
-
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 1</span></div></div></div>
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 2</span></div></div></div>
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 3</span></div></div></div>
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 4</span></div></div></div>
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 5</span></div></div></div>
+    <div class="photo-card"><div class="photo-card-img"><div class="photo-placeholder"><span class="photo-placeholder-icon">📷</span><span class="photo-placeholder-label">Photo 6</span></div></div></div>
   </div>
 
-  <!-- VALUES STRIP -->
   <div class="values-strip">
-    <div class="value-item">
-      <span class="value-icon">🌿</span>
-      <div class="value-title en">100% Natural</div>
-      <div class="value-title fr" style="display:none">100% Naturel</div>
-      <div class="value-desc en">No additives, no preservatives. Pure Atlas craft.</div>
-      <div class="value-desc fr" style="display:none">Sans additifs ni conservateurs. Artisanat pur.</div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">👐</span>
-      <div class="value-title en">Handmade</div>
-      <div class="value-title fr" style="display:none">Fait Main</div>
-      <div class="value-desc en">Every product made by hand, the traditional way.</div>
-      <div class="value-desc fr" style="display:none">Chaque produit fait à la main, à la façon traditionnelle.</div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">♀️</span>
-      <div class="value-title en">Women-Led</div>
-      <div class="value-title fr" style="display:none">Dirigé par des Femmes</div>
-      <div class="value-desc en">Supporting and empowering Atlas Mountain women.</div>
-      <div class="value-desc fr" style="display:none">Soutien et autonomisation des femmes de l'Atlas.</div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">🏔️</span>
-      <div class="value-title en">Atlas Origin</div>
-      <div class="value-title fr" style="display:none">Origine Atlas</div>
-      <div class="value-desc en">Sourced directly from the Moroccan Atlas Mountains.</div>
-      <div class="value-desc fr" style="display:none">Directement des montagnes de l'Atlas marocain.</div>
-    </div>
+    <div class="value-item"><span class="value-icon">🌿</span><div class="value-title en">100% Natural</div><div class="value-title fr" style="display:none">100% Naturel</div><div class="value-desc en">No additives, no preservatives. Pure Atlas craft.</div><div class="value-desc fr" style="display:none">Sans additifs ni conservateurs. Artisanat pur.</div></div>
+    <div class="value-item"><span class="value-icon">👐</span><div class="value-title en">Handmade</div><div class="value-title fr" style="display:none">Fait Main</div><div class="value-desc en">Every product made by hand, the traditional way.</div><div class="value-desc fr" style="display:none">Chaque produit fait à la main, à la façon traditionnelle.</div></div>
+    <div class="value-item"><span class="value-icon">♀️</span><div class="value-title en">Women-Led</div><div class="value-title fr" style="display:none">Dirigé par des Femmes</div><div class="value-desc en">Supporting and empowering Atlas Mountain women.</div><div class="value-desc fr" style="display:none">Soutien et autonomisation des femmes de l'Atlas.</div></div>
+    <div class="value-item"><span class="value-icon">🏔️</span><div class="value-title en">Atlas Origin</div><div class="value-title fr" style="display:none">Origine Atlas</div><div class="value-desc en">Sourced directly from the Moroccan Atlas Mountains.</div><div class="value-desc fr" style="display:none">Directement des montagnes de l'Atlas marocain.</div></div>
   </div>
 
-  <!-- TEAM SECTION -->
   <div class="team-section">
     <div class="team-photo">
-      <!-- Replace with: <img src="images/team.jpg" alt="The Afousse Team"> -->
-      <div class="photo-placeholder">
-        <span class="photo-placeholder-icon">👩‍👩‍👧‍👧</span>
-        <span class="photo-placeholder-text en">Photo of the Afousse team<br>The women behind the brand</span>
-        <span class="photo-placeholder-text fr" style="display:none">Photo de l'équipe Afousse<br>Les femmes derrière la marque</span>
-        <span class="photo-placeholder-label en">Replace with: images/team.jpg</span>
-        <span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/team.jpg</span>
-      </div>
+      <div class="photo-placeholder"><span class="photo-placeholder-icon">👩‍👩‍👧‍👧</span><span class="photo-placeholder-text en">Photo of the Afousse team<br>The women behind the brand</span><span class="photo-placeholder-text fr" style="display:none">Photo de l'équipe Afousse<br>Les femmes derrière la marque</span><span class="photo-placeholder-label en">Replace with: images/team.jpg</span><span class="photo-placeholder-label fr" style="display:none">Remplacer par : images/team.jpg</span></div>
     </div>
     <div class="team-text">
-      <h3 class="en">Meet the <em>women</em><br>of Afousse</h3>
-      <h3 class="fr" style="display:none">Rencontrez les <em>femmes</em><br>d'Afousse</h3>
+      <h3 class="en">Meet the <em>women</em><br>of Afousse</h3><h3 class="fr" style="display:none">Rencontrez les <em>femmes</em><br>d'Afousse</h3>
       <p class="en">The Afousse Association is made up of dedicated women from villages across the Atlas Mountains. Each one brings generations of knowledge about argan harvesting, cracking, pressing and crafting.</p>
       <p class="fr" style="display:none">L'Association Afousse est composée de femmes dévouées de villages à travers les montagnes de l'Atlas. Chacune apporte des générations de savoir-faire sur la récolte, le craquage, la pression et la fabrication de l'argan.</p>
       <p class="en">When you stop at Golden Afouss, you meet them directly. Their work, their stories, and their products are all here waiting for you.</p>
@@ -499,55 +144,19 @@
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="argan-cta">
-    <h3 class="en">Come visit us on the road</h3>
-    <h3 class="fr" style="display:none">Venez nous rendre visite sur la route</h3>
+    <h3 class="en">Come visit us on the road</h3><h3 class="fr" style="display:none">Venez nous rendre visite sur la route</h3>
     <p class="en">Stop by Golden Afouss on the Atlas Mountain road. Browse our products, meet the women behind them, and enjoy a Moroccan meal with a view.</p>
     <p class="fr" style="display:none">Arrêtez-vous à Golden Afouss sur la route de l'Atlas. Découvrez nos produits, rencontrez les femmes qui les fabriquent et savourez un repas marocain avec vue.</p>
     <div class="argan-cta-btns">
-      <a class="btn-gold" href="menu.html">
-        <span class="en">View Our Menu</span>
-        <span class="fr" style="display:none">Voir Notre Menu</span>
-      </a>
-      <a class="btn-primary" href="booking.html">
-        <span class="en">Book Your Group</span>
-        <span class="fr" style="display:none">Réserver votre Groupe</span>
-      </a>
+      <a class="btn-gold" href="menue.html"><span class="en">View Our Menu</span><span class="fr" style="display:none">Voir Notre Menu</span></a>
+      <a class="btn-primary" href="booking.html"><span class="en">Book Your Group</span><span class="fr" style="display:none">Réserver votre Groupe</span></a>
     </div>
   </div>
-
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo"><em>Golden</em> Afouss</div>
-      <div class="footer-tagline en">A Moroccan mountain restaurant where flavour meets stunning views and authentic crafts.</div>
-      <div class="footer-tagline fr" style="display:none">Un restaurant marocain de montagne où saveurs, vues et artisanat se rencontrent.</div>
-    </div>
-    <div class="footer-col">
-      <h4 class="en">Pages</h4><h4 class="fr" style="display:none">Pages</h4>
-      <a href="index.html" class="en">Home</a><a href="index.html" class="fr" style="display:none">Accueil</a>
-      <a href="menu.html" class="en">Menu</a><a href="menu.html" class="fr" style="display:none">Menu</a>
-      <a href="argan.html" class="en">Argan</a><a href="argan.html" class="fr" style="display:none">Argan</a>
-      <a href="booking.html" class="en">Book Now</a><a href="booking.html" class="fr" style="display:none">Réserver</a>
-      <a href="about.html" class="en">About Us</a><a href="about.html" class="fr" style="display:none">À Propos</a>
-    </div>
-    <div class="footer-col">
-      <h4 class="en">Contact</h4><h4 class="fr" style="display:none">Contact</h4>
-      <p>WhatsApp: +212 639 339 952</p>
-      <p>Email: goldenafouss@gmail.com</p>
-      <p id="footer-hours">Open to visitors — contact us for details</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span id="footer-rights">© 2026 Golden Afouss. All rights reserved.</span>
-    <span id="footer-built">Built with love in the Atlas Mountains.</span>
-  </div>
-</footer>
-
+<div id="footer-container"></div>
+<script src="js/components.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
