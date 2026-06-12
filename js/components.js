@@ -1,8 +1,8 @@
 // ─── GLOBAL BUSINESS INFO (CHANGE ONCE, UPDATES EVERYWHERE) ───
 const BUSINESS_PHONE_DISPLAY = '+212 661-051782';
-const BUSINESS_PHONE_RAW = '212661051782'; // Used for WhatsApp links
+const BUSINESS_PHONE_RAW = '212661051782'; 
 const BUSINESS_EMAIL = 'goldenafouss@gmail.com';
-const CURRENT_YEAR = new Date().getFullYear(); // Auto-updates every year!
+const CURRENT_YEAR = new Date().getFullYear(); 
 
 // ─── DYNAMIC FOOTER BUILDER ───
 function loadFooter() {
@@ -39,11 +39,49 @@ function loadFooter() {
     </footer>
   `;
 
-  // Ensure language preference applies to the new footer immediately
   if (typeof setLang === 'function') {
     setLang(localStorage.getItem('ga_lang') || 'en', true);
   }
 }
 
-// Inject footer when page loads
-document.addEventListener('DOMContentLoaded', loadFooter);
+// ─── PREMIUM MOBILE BOTTOM NAVIGATION BUILDER ───
+function loadBottomNav() {
+  // Prevent duplicate navs if function runs twice
+  if (document.querySelector('.mobile-bottom-nav')) return;
+
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  const nav = document.createElement('nav');
+  nav.className = 'mobile-bottom-nav';
+  nav.innerHTML = `
+    <a href="index.html" class="bottom-nav-item ${currentPage === 'index.html' ? 'active' : ''}">
+      <span class="bottom-nav-icon">🏠</span>
+      <span class="en">Home</span><span class="fr" style="display:none">Accueil</span>
+    </a>
+    <a href="menu.html" class="bottom-nav-item ${currentPage === 'menu.html' ? 'active' : ''}">
+      <span class="bottom-nav-icon">🍽️</span>
+      <span class="en">Menu</span><span class="fr" style="display:none">Menu</span>
+    </a>
+    <a href="booking.html" class="bottom-nav-item ${currentPage === 'booking.html' ? 'active' : ''}">
+      <span class="bottom-nav-icon">📋</span>
+      <span class="en">Book</span><span class="fr" style="display:none">Réserver</span>
+    </a>
+    <a href="about.html" class="bottom-nav-item ${currentPage === 'about.html' ? 'active' : ''}">
+      <span class="bottom-nav-icon">⛰️</span>
+      <span class="en">About</span><span class="fr" style="display:none">À Propos</span>
+    </a>
+  `;
+
+  document.body.appendChild(nav);
+
+  // Ensure language applies to the new bottom nav immediately
+  if (typeof setLang === 'function') {
+    setLang(localStorage.getItem('ga_lang') || 'en', true);
+  }
+}
+
+// Inject footer and bottom nav when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  loadFooter();
+  loadBottomNav();
+});
