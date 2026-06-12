@@ -189,3 +189,66 @@ textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
   .toast-wrap { bottom: 90px; }
 }
 @media (max-width: 380px) { .menu-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 42px !important; } .nav-logo { font-size: 18px; } }
+
+/* ══════════════════════════════════════
+   PREMIUM MOBILE BOTTOM NAVIGATION
+══════════════════════════════════════ */
+.mobile-bottom-nav {
+  display: none; /* Hidden on Desktop */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(253, 250, 243, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 8px 10px 12px; /* Extra bottom padding for iPhones with home bars */
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  gap: 4px;
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  padding: 4px 12px;
+}
+
+.bottom-nav-icon {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.bottom-nav-item.active {
+  color: var(--gold);
+}
+
+.bottom-nav-item.active .bottom-nav-icon {
+  transform: scale(1.1);
+}
+
+@media (max-width: 640px) {
+  /* Show Bottom Nav on Mobile */
+  .mobile-bottom-nav { display: flex; }
+  
+  /* Hide the old Hamburger Menu completely */
+  .nav-hamburger { display: none !important; }
+  
+  /* Move the floating cart button UP so it doesn't overlap the bottom nav */
+  .floating-cart { bottom: 85px !important; }
+  
+  /* Add bottom padding to the whole page so the bottom nav doesn't cover the footer */
+  body { padding-bottom: 70px; }
+}
