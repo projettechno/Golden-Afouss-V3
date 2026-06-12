@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golden Afouss — Atlas Mountains, Marrakech</title>
-  <meta name="description" content="A mountain-side café & restaurant on the Atlas road. Moroccan food, mint tea, stunning views & authentic argan products. Book your group before you arrive.">
+  <meta name="description" content="A mountain-side café & restaurant on the Atlas road. Moroccan food, mint tea, stunning views & authentic argan products.">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .hero { background: var(--ink); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
@@ -25,7 +25,6 @@
     .feature-item { display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: var(--r2); background: var(--cream); border: 1px solid var(--border); transition: all .2s; text-decoration: none; color: inherit; }
     .feature-item:hover { border-color: var(--gold); transform: translateY(-2px); }
     .feature-icon { font-size: 26px; flex-shrink: 0; }
-    .feature-text {}
     .feature-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
     .feature-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
     .about-section { padding: 80px 28px; max-width: 1100px; margin: 0 auto; }
@@ -62,7 +61,8 @@
     <a class="nav-logo" href="index.html"><em>Golden</em> Afouss</a>
     <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="nav-links">
-      <a class="nav-link active" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
+      <a class="nav-link active" href="index.html"><span class="nav-dot"></span><span class="en">Home</span><span class="fr" style="display:none">Accueil</span></a>
+      <a class="nav-link" href="menu.html"><span class="nav-dot"></span><span id="nav-menu">Menu</span></a>
       <a class="nav-link" href="argan.html"><span class="nav-dot"></span><span id="nav-argan">Argan</span></a>
       <a class="nav-link" href="booking.html"><span class="nav-dot"></span><span id="nav-book">Book Now</span></a>
       <a class="nav-link" href="about.html"><span class="nav-dot"></span><span id="nav-about">About</span></a>
@@ -127,7 +127,6 @@
     <a class="btn-primary" href="menu.html"><span class="en">View Menu</span><span class="fr" style="display:none">Voir le Menu</span></a>
   </div>
 </div>
-
 <div id="footer-container"></div>
 <script src="js/components.js"></script>
 <script src="js/app.js"></script>
