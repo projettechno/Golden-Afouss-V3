@@ -1,5 +1,5 @@
 // ─── CONFIGURATION ───
-const WA_PHONE = '212661051782';
+const WA_PHONE = '212608905168';
 
 // ─── STATE & INIT ───
 let sel = {};
