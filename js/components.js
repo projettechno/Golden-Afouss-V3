@@ -1,6 +1,6 @@
 // ─── GLOBAL BUSINESS INFO ───
-const BUSINESS_PHONE_DISPLAY = '+212 661-051782';
-const BUSINESS_PHONE_RAW = '212661051782'; 
+const BUSINESS_PHONE_DISPLAY = '+212 608-905-168';
+const BUSINESS_PHONE_RAW = '212608905168'; 
 const BUSINESS_EMAIL = 'goldenafouss@gmail.com';
 const CURRENT_YEAR = new Date().getFullYear(); 
 
